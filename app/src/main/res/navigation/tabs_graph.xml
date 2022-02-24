@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tabs_graph"
+    app:startDestination="@id/start_dest">
+
+    <fragment
+        android:id="@+id/start_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.tabs.start.StartFragment"
+        android:label="start_fragment" />
+    <fragment
+        android:id="@+id/settings_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.tabs.settings.SettingsFragment"
+        android:label="settings_fragment" />
+    <fragment
+        android:id="@+id/history_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.tabs.history.HistoryFragment"
+        android:label="history_fragment" />
+</navigation>

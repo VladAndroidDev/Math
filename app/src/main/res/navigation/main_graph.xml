@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/tabs_dest">
+
+    <fragment
+        android:id="@+id/tabs_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.tabs.TabsFragment"
+        android:label="TabsFragment" >
+        <action
+            android:id="@+id/action_tabsFragment_to_playSettingsFragment"
+            app:destination="@id/play_settings_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/play_settings_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.playsettings.PlaySettingsFragment"
+        android:label="PlaySettingsFragment" >
+        <action
+            android:id="@+id/action_playSettingsFragment_to_playFragment"
+            app:destination="@id/play_dest" />
+        <action
+            android:id="@+id/action_play_settings_dest_to_enter_value_dest"
+            app:destination="@id/enter_value_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/play_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.play.PlayFragment"
+        android:label="PlayFragment" >
+        <action
+            android:id="@+id/action_play_dest_to_statisticsFragment"
+            app:destination="@id/statistics_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/statistics_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.statistics.StatisticsFragment"
+        android:label="StatisticsFragment" />
+    <dialog
+        android:id="@+id/enter_value_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.playsettings.range.EnterValueDialogFragment"
+        android:label="enter_value_dest" >
+
+<!--        <argument-->
+<!--            android:name="currentValue"-->
+<!--            app:argType="integer" />-->
+
+    </dialog>
+</navigation>

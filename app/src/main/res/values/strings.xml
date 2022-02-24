@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Math</string>
+    <string name="play">Play</string>
+    <string name="settings">Settings</string>
+    <string name="history">History</string>
+    <string name="number_of_tasks">Number of tasks</string>
+    <string name="number_of_answers">Number of answers</string>
+    <string name="game_duration">Game duration</string>
+    <string name="statistics">Statistics</string>
+    <string name="total_tasks">Total tasks</string>
+    <string name="number_of_correct_answers">Number of correct answers</string>
+    <string name="mathematical_operations">Mathematical operations</string>
+    <string name="addition">Addition</string>
+    <string name="subtraction">Subtraction</string>
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+    <string name="start">Start</string>
+    <string name="enter_range_hint">Enter value</string>
+    <string name="quick_settings">Quick settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="enter_value_here">Enter value here</string>
+    
+    <string name="msg_error_incorrect_value">The start value of the range cannot be greater than the end value</string>
+    <string name="time">minutes</string>
+    <string name="not_limited">Not limited</string>
+    <string name="tasks">tasks</string>
+    <string name="manual_input">Manual input</string>
+    <string name="variants">variants</string>
+    <string name="your_answer">Your answer?</string>
+    <string name="enter_the_number">Enter the number</string>
+</resources>

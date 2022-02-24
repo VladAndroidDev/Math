@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.v.nevi.p.sv.android.math.screens.play.PlayViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.v.nevi.p.sv.android.math.views.CalculatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:onEqualClick="@{(value)->viewmodel.onEqualClick(value)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <!--    <TextView-->
+        <!--        android:id="@+id/task_text_view"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:textSize="48sp"-->
+        <!--        android:gravity="center"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toTopOf="parent"-->
+        <!--        app:layout_constraintBottom_toTopOf="@id/guideline_top"-->
+        <!--        tools:text="100+100" />-->
+
+        <!--    <com.v.nevi.p.sv.android.math.views.RecyclerViewHistory-->
+        <!--        android:id="@+id/recycler_view_history"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="0dp"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/guideline_top"-->
+        <!--        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintHorizontal_bias="1.0"-->
+        <!--        android:paddingBottom="8dp"-->
+        <!--        android:paddingStart="16dp"-->
+        <!--        android:paddingEnd="16dp"-->
+        <!--        />-->
+
+        <!--    <androidx.constraintlayout.widget.Guideline-->
+        <!--        android:id="@+id/guideline_top"-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:orientation="horizontal"-->
+        <!--        app:layout_constraintGuide_percent="0.2" />-->
+
+
+        <!--    <View-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="1dp"-->
+        <!--        android:background="@color/delimetr_color"-->
+        <!--        app:layout_constraintTop_toTopOf="@id/guideline_top"-->
+        <!--        app:layout_constraintBottom_toBottomOf="@id/guideline_top"-->
+        <!--        app:layout_constraintStart_toStartOf="@id/guideline_top"-->
+        <!--        app:layout_constraintEnd_toEndOf="@id/guideline_top"/>-->
+
+        <!--    <androidx.constraintlayout.widget.Guideline-->
+        <!--        android:id="@+id/guideline_bottom"-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:orientation="horizontal"-->
+        <!--        app:layout_constraintGuide_percent="0.7" />-->
+
+        <!--    <View-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="1dp"-->
+        <!--        android:background="@color/delimetr_color"-->
+        <!--        app:layout_constraintTop_toTopOf="@id/guideline_bottom"-->
+        <!--        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"-->
+        <!--        app:layout_constraintStart_toStartOf="@id/guideline_bottom"-->
+        <!--        app:layout_constraintEnd_toEndOf="@id/guideline_bottom"/>-->
+
+        <!--    <androidx.recyclerview.widget.RecyclerView-->
+        <!--        android:id="@+id/recycler_view_variants"-->
+        <!--        android:layout_width="0dp"-->
+        <!--        android:layout_height="0dp"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/guideline_bottom"-->
+        <!--        app:layout_constraintVertical_bias="1.0"-->
+        <!--        />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

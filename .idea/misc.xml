@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/background_start_button.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/backspace_button.xml" value="0.173" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_backspace_24.xml" value="0.173" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_play_circle_outline_24.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/riple_button.xml" value="0.173" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_backspace_button.xml" value="0.173" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_shape_start_button.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_start_button.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_start_button.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_choose_range_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_enter_range_dialog.xml" value="0.1" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_enter_value_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_history.xml" value="0.11302083333333333" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_play.xml" value="0.11302083333333333" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_play_settings.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_start.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_statistic.xml" value="0.1" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_tabs.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/item_recyclerview_history.xml" value="0.11302083333333333" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/item_recylerview_answer_options.xml" value="0.11302083333333333" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/manual_input_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
