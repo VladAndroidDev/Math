@@ -125,9 +125,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:valueFrom="0"
-            android:valueTo="10"
+            android:valueTo="20"
             android:stepSize="1"
-            app:startValue="@{viewmodel.playSettings.gameDurationMin}"
+            app:startValue="@{viewmodel.playSettings.gameDuration}"
             app:viewModel="@{viewmodel}"
             app:textViewLabel="@{gameDuration}"
             />

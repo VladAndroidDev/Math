@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        
+        <variable
+            name="viewmodel"
+            type="com.v.nevi.p.sv.android.math.screens.play.PlayViewModel" />
+
+    </data>
+
+    <android.widget.Button
+        android:id="@+id/answer_options_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:padding="8dp"
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:background="@drawable/ripple_button"
+        app:viewModel="@{viewmodel}"
+        />
+
+</layout>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.v.nevi.p.sv.android.math.screens.statistics.StatisticsViewModel" />
+
+    </data>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -49,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textSize="16sp"
+                android:text="@{viewmodel.totalTasks}"
                 app:layout_constraintBottom_toBottomOf="@id/text_number_total_tasks"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"
@@ -76,12 +86,97 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textSize="16sp"
+                android:text="@{viewmodel.correctAnswers}"
                 app:layout_constraintBottom_toBottomOf="@id/text_number_correct_answers"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toEndOf="@id/text_number_correct_answers"
                 app:layout_constraintTop_toBottomOf="@id/number_total_tasks"
+                tools:text="100" />
+
+            <TextView
+                android:id="@+id/text_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/quality"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/quality"
+                app:layout_constraintEnd_toStartOf="@id/quality"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_number_correct_answers" />
+
+            <TextView
+                android:id="@+id/quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:text="@{viewmodel.quality}"
+                app:layout_constraintBottom_toBottomOf="@id/text_quality"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@id/text_quality"
+                app:layout_constraintTop_toBottomOf="@id/number_correct_answers"
+                tools:text="100" />
+
+            <TextView
+                android:id="@+id/text_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/text_time"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/time"
+                app:layout_constraintEnd_toStartOf="@id/time"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_quality" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:text="@{viewmodel.time}"
+                app:layout_constraintBottom_toBottomOf="@id/text_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@id/text_time"
+                app:layout_constraintTop_toBottomOf="@id/quality"
+                tools:text="100" />
+
+            <TextView
+                android:id="@+id/text_average_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/average_time"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/average_time"
+                app:layout_constraintEnd_toStartOf="@id/average_time"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_time" />
+
+            <TextView
+                android:id="@+id/average_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:text="@{viewmodel.averageTime}"
+                app:layout_constraintBottom_toBottomOf="@id/text_average_time"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@id/text_average_time"
+                app:layout_constraintTop_toBottomOf="@id/time"
                 tools:text="100" />
 
 
@@ -94,6 +189,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp" />
+        android:layout_marginStart="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:itemsStatistics="@{viewmodel.listStatisticsItems}"/>
 </LinearLayout>
 </layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewmodel"
+            type="com.v.nevi.p.sv.android.math.screens.play.PlayViewModel" />
+    </data>
+
+    <com.v.nevi.p.sv.android.math.views.CalculatorView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:onEqualClick="@{(value)->viewmodel.onEqualClick(value)}"
+        />
+</layout>

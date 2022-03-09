@@ -29,4 +29,7 @@
     <string name="variants">variants</string>
     <string name="your_answer">Your answer?</string>
     <string name="enter_the_number">Enter the number</string>
+    <string name="text_time">Time</string>
+    <string name="average_time">Average per task</string>
+    <string name="quality">Quality</string>
 </resources>
