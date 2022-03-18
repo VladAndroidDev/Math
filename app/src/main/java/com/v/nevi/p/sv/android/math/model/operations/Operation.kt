@@ -1,8 +1,9 @@
 package com.v.nevi.p.sv.android.math.model.operations
 
 import com.v.nevi.p.sv.android.math.model.Task
+import java.io.Serializable
 
-interface Operation {
+interface Operation:Serializable {
 
     var task:Task?
 
@@ -12,7 +13,7 @@ interface Operation {
 
     fun getOperationSymbol():Char
 
-    fun getStringRepresentation(firstValue:Int,secondValue:Int,answer:Int):String{
+    fun getStringRepresentation(firstValue:Int,secondValue:Int):String{
         return String.format("$firstValue ${getOperationSymbol()} $secondValue = ")
     }
 }

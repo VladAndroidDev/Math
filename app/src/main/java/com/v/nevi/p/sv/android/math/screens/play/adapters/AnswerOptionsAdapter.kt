@@ -7,13 +7,7 @@ import com.v.nevi.p.sv.android.math.databinding.ItemAnswerOptionsListBinding
 import com.v.nevi.p.sv.android.math.screens.play.PlayViewModel
 import com.v.nevi.p.sv.android.math.screens.play.adapters.AnswerOptionsAdapter.AnswerOptionsViewHolder as AnswerOptionsViewHolder
 
-class AnswerOptionsAdapter(private val viewModel: PlayViewModel) : RecyclerView.Adapter<AnswerOptionsViewHolder>() {
-
-    var listItems:List<Long> = emptyList()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
+class AnswerOptionsAdapter(private val viewModel: PlayViewModel,private val listItems:List<Long>) : RecyclerView.Adapter<AnswerOptionsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerOptionsViewHolder {
         return from(parent,viewModel)

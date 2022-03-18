@@ -10,7 +10,7 @@ class AdditionOperation:Operation {
         val firstValue = GenerateRandomNumber.execute(startRange,endRange)
         val secondValue = GenerateRandomNumber.execute(startRange,endRange)
         val answer = firstValue + secondValue
-        val stringRepresentation = getStringRepresentation(firstValue, secondValue, answer)
+        val stringRepresentation = getStringRepresentation(firstValue, secondValue)
         task = Task(answer.toLong(),stringRepresentation)
         return task as Task
     }

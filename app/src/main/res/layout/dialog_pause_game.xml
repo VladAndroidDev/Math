@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.v.nevi.p.sv.android.math.screens.play.EventMenu"/>
+        <variable
+            name="viewmodel"
+            type="com.v.nevi.p.sv.android.math.screens.play.PausePlayViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pause"
+            android:textSize="18sp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/continue_game"
+            android:onClick="@{(v)->viewmodel.onItemMenuClickEvent(v)}"
+            android:layout_marginTop="12dp"
+            android:tag="@{EventMenu.CONTINUE}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/totals"
+            android:onClick="@{(v)->viewmodel.onItemMenuClickEvent(v)}"
+            android:layout_marginTop="12dp"
+            android:tag="@{EventMenu.TOTALS}"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/red_dark"
+            android:text="@string/exit"
+            android:onClick="@{(v)->viewmodel.onItemMenuClickEvent(v)}"
+            android:tag="@{EventMenu.EXIT}"/>
+
+    </LinearLayout>
+</layout>

@@ -11,7 +11,8 @@
     <color name="green_700">#087f23</color>
     <color name="green_200">#80e27e</color>
     <color name="opacity_black">#99000000</color>
-    <color name="color_uncorrect_answer">#FF1100</color>
+    <color name="red">#FF1100</color>
     <color name="color_correct_answer">#4CAF50</color>
     <color name="delimetr_color">@color/opacity_black</color>
+    <color name="red_dark">#ba000d</color>
 </resources>

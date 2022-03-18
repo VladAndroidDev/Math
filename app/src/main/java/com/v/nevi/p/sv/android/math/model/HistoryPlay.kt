@@ -1,14 +1,23 @@
 package com.v.nevi.p.sv.android.math.model
 
-object HistoryPlay {
+import android.os.Parcelable
+import com.v.nevi.p.sv.android.math.model.data.History
+import com.v.nevi.p.sv.android.math.utils.getCurrentDate
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+class HistoryPlay:Parcelable {
 
     val listStatistics:MutableList<StatisticsItem> = mutableListOf()
-    var gameDuration: Int = 0
-    var numberResolvedAnswers: Int = 0
+    var gameDuration: Long = 0
+    var numberResolvedTasks: Int = 0
     var numberCorrectAnswers = 0
     var numberInCorrectAnswers = 0
     val quality:Double
-    get() = numberCorrectAnswers.toDouble()/numberResolvedAnswers
+    get() = numberCorrectAnswers.toDouble()/numberResolvedTasks
+
+
+
 
     fun createItemPlayHistory(task: Task, answerUser: Long): StatisticsItem.ItemPlayHistory {
         val isAnswerCorrect = task.answer == answerUser
@@ -21,7 +30,7 @@ object HistoryPlay {
     }
 
     private fun updateAnswers(isAnswerCorrect:Boolean){
-        numberResolvedAnswers++
+        numberResolvedTasks++
         if(isAnswerCorrect){
             numberCorrectAnswers++
         }else{
@@ -29,8 +38,18 @@ object HistoryPlay {
         }
     }
 
-    fun updateTime(newTime: Int) {
+    fun updateTime(newTime: Long) {
         gameDuration = newTime
     }
 
+    fun createEntityForDb(): History {
+        return History(getCurrentDate(), numberResolvedTasks, numberCorrectAnswers, gameDuration)
+    }
+
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    fun isEmpty()=numberResolvedTasks==0
 }

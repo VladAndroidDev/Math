@@ -26,6 +26,11 @@
         <item name="android:textSize">36sp</item>
         <item name="android:background">@drawable/ripple_button</item>
     </style>
+    <style name="MathSwitchStyle" parent="Theme.Math">
+
+        <item name="colorControlActivated">@color/green_500</item>
+
+    </style>
 
 
 </resources>

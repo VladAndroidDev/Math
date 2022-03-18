@@ -4,41 +4,31 @@ import com.v.nevi.p.sv.android.math.model.operations.*
 import java.io.Serializable
 
 data class PlaySettings private constructor(
-    var additionEnabled: Boolean = true,
-    var subtractionEnabled: Boolean = true,
-    var multiplicationEnabled: Boolean = true,
-    var divisionEnabled: Boolean = true,
-    var valueStartRange: Int = 0,
-    var valueEndRange: Int = 50,
+    val arrayOperationSettings: Array<OperationSettings> = arrayOf(OperationSettings(AdditionOperation()),
+        OperationSettings(SubtractionOperation()),
+        OperationSettings(MultiplicationOperation()),
+    OperationSettings(DivisionOperation())),
     var gameDuration: Int = 600,
     var numberAnswers: Int = 0,
     var numberTasks: Int = 0
-):Serializable {
+) : Serializable {
 
-    fun getEnabledOperations():List<Operation>{
-            val list:MutableList<Operation> = mutableListOf()
-            if (additionEnabled) {
-                list.add(AdditionOperation())
-            }
-            if(subtractionEnabled){
-                list.add(SubtractionOperation())
-            }
-            if (divisionEnabled){
-                list.add(DivisionOperation())
-            }
-            if(multiplicationEnabled){
-                list.add(MultiplicationOperation())
-            }
-        return list
+    fun getEnabledOperationSettings(): List<OperationSettings> {
+        return arrayOperationSettings.filter {
+            it.checked
+        }
     }
 
     companion object {
 
+        const val NUMBER_OPERATIONS = 4
+
         private var instance: PlaySettings? = null
 
-        fun initialize(playSettings: PlaySettings?){
+        fun initialize(playSettings: PlaySettings?) {
             instance = playSettings
         }
+
         fun getInstance(): PlaySettings {
             return instance ?: PlaySettings()
         }

@@ -3,48 +3,35 @@ package com.v.nevi.p.sv.android.math.screens.statistics
 import androidx.lifecycle.ViewModel
 import com.v.nevi.p.sv.android.math.model.HistoryPlay
 import com.v.nevi.p.sv.android.math.model.StatisticsItem
+import com.v.nevi.p.sv.android.math.utils.createStringTimeRepresentation
 
-class StatisticsViewModel:ViewModel() {
+class StatisticsViewModel(private val historyPlay: HistoryPlay):ViewModel() {
 
     val totalTasks:String
-    get() = HistoryPlay.numberResolvedAnswers.toString()
+    get() = historyPlay.numberResolvedTasks.toString()
 
     val correctAnswers:String
-    get() = HistoryPlay.numberCorrectAnswers.toString()
+    get() = historyPlay.numberCorrectAnswers.toString()
 
     val time:String
     get() {
-        val totalSeconds = HistoryPlay.gameDuration
-        val minutes = totalSeconds/60
-        val seconds = totalSeconds%60
-        return createStringTimeRepresentation(minutes, seconds)
+        return createStringTimeRepresentation(historyPlay.gameDuration)
     }
 
     val averageTime:String
     get() {
-        val averageTime = HistoryPlay.gameDuration/HistoryPlay.numberResolvedAnswers
-        val minutes = averageTime/60
-        val seconds = averageTime%60
-        return createStringTimeRepresentation(minutes, seconds)
-    }
+        val averageTime = if(historyPlay.numberResolvedTasks!=0){
+            historyPlay.gameDuration / historyPlay.numberResolvedTasks
+        }else{
+            0
+        }
+        return createStringTimeRepresentation(averageTime)
+        }
 
     val quality:String
-    get() = "${HistoryPlay.quality}%"
+    get() = "${historyPlay.quality}%"
 
     val listStatisticsItems:List<StatisticsItem>
-    get() = HistoryPlay.listStatistics
+    get() = historyPlay.listStatistics
 
-    private fun createStringTimeRepresentation(minutes:Int, seconds:Int):String{
-        val minutesStr:String = if(minutes<10){
-            "0$minutes"
-        }else{
-            minutes.toString()
-        }
-        val secondsStr = if(seconds<10){
-            "0$seconds"
-        }else{
-            seconds.toString()
-        }
-        return "$minutesStr:$secondsStr"
-    }
 }

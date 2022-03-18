@@ -32,4 +32,21 @@
     <string name="text_time">Time</string>
     <string name="average_time">Average per task</string>
     <string name="quality">Quality</string>
+    <string name="time_in_play">Time in game</string>
+    <string name="correct_answers">Correct answers</string>
+    <string name="operation_disabled">Operation disabled</string>
+    <string name="operation_enabled">Operation enabled</string>
+    <string name="continue_game">Continue</string>
+    <string name="totals">Totals</string>
+    <string name="finish">Finish</string>
+    <string name="pause">Pause</string>
+    <string name="exit">Exit</string>
+    <string-array name="tabs">
+
+        <item>@string/addition</item>
+        <item>@string/subtraction</item>
+        <item>@string/multiplication</item>
+        <item>@string/division</item>
+
+    </string-array>
 </resources>

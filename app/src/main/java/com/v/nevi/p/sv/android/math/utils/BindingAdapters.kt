@@ -3,20 +3,21 @@ package com.v.nevi.p.sv.android.math.utils
 import android.content.Context
 import android.os.SystemClock
 import android.util.Log
-import android.widget.Button
-import android.widget.Chronometer
-import android.widget.TextView
+import android.widget.*
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.slider.Slider
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.v.nevi.p.sv.android.math.R
 import com.v.nevi.p.sv.android.math.model.StatisticsItem
+import com.v.nevi.p.sv.android.math.model.data.History
 import com.v.nevi.p.sv.android.math.screens.play.PlayViewModel
 import com.v.nevi.p.sv.android.math.screens.play.TimeListener
 import com.v.nevi.p.sv.android.math.screens.play.adapters.AnswerOptionsAdapter
 import com.v.nevi.p.sv.android.math.screens.playsettings.PlaySettingsViewModel
 import com.v.nevi.p.sv.android.math.screens.statistics.StatisticsAdapter
+import com.v.nevi.p.sv.android.math.screens.tabs.history.HistoryAdapter
 import com.v.nevi.p.sv.android.math.views.CalculatorView
 import com.v.nevi.p.sv.android.math.views.RecyclerViewHistory
 
@@ -24,9 +25,9 @@ import com.v.nevi.p.sv.android.math.views.RecyclerViewHistory
 fun setTimeListener(chronometer: Chronometer,listener: TimeListener){
     chronometer.setOnChronometerTickListener {
         val timeValues = chronometer.text.toString().split(':')
-        val minutes = timeValues[0].toInt()
-        val seconds  = timeValues[1].toInt()
-        val secondsAll:Int = if(minutes>0){
+        val minutes = timeValues[0].toLong()
+        val seconds  = timeValues[1].toLong()
+        val secondsAll:Long= if(minutes>0){
             minutes*seconds
         }else{
             seconds
@@ -57,11 +58,17 @@ fun insertValue(recyclerView: RecyclerViewHistory, item: StatisticsItem.ItemPlay
     }
 }
 
-@BindingAdapter(value = ["items"])
-fun setItems(recyclerView: RecyclerView,listItems:List<Long>){
-    listItems.let {
-        val adapter = recyclerView.adapter as AnswerOptionsAdapter
-        adapter.listItems = it
+@BindingAdapter(value = ["history_items"])
+fun setHistoryItems(recyclerView: RecyclerView,listItems: List<History>?){
+    listItems?.let{
+        recyclerView.adapter = HistoryAdapter(it)
+    }
+}
+
+@BindingAdapter(value = ["items","viewModel"], requireAll = true)
+fun setItems(recyclerView: RecyclerView,listItems:List<Long>?,viewModel: PlayViewModel){
+    listItems?.let {
+        recyclerView.adapter = AnswerOptionsAdapter(viewModel, listItems)
     }
 }
 
@@ -78,24 +85,25 @@ fun setOnEqualClickListener(
     calculatorView.onEqualClickListener = listener
 }
 
-@BindingAdapter(value = ["viewModel"])
-fun setViewModel(button: Button,viewModel: PlayViewModel){
-    button.setOnClickListener {
-        if (it is Button) {
-            viewModel.onEqualClick(it.text.toString().toLong())
-        }
-    }
-}
+//@BindingAdapter(value = ["viewModel"])
+//fun setViewModel(button: Button,viewModel: PlayViewModel){
+//    button.setOnClickListener {
+//        if (it is Button) {
+//            viewModel.onEqualClick(it.text.toString().toLong())
+//        }
+//    }
+//}
 
 
 @BindingAdapter(value = ["numberForSpanCount"])
 fun setNumberAnswers(recyclerView: RecyclerView,numberAnswers:Int){
+    if(numberAnswers==0) return
     val spanCount = if(numberAnswers%3==0){
         3
     }else{
         2
     }
-    recyclerView.layoutManager= GridLayoutManager(recyclerView.context,spanCount)
+    recyclerView.layoutManager = GridLayoutManager(recyclerView.context,spanCount)
 }
 
 @BindingAdapter(value = ["textViewLabel", "viewModel","startValue"], requireAll = true)
@@ -139,8 +147,6 @@ fun onProgressChangedListener(
         }
     }
 }
-
-
 
 fun setTextGameDurationTextViewLabel(timeInSeconds:Int, label: TextView, context:Context){
     label.text = if (timeInSeconds == 0) {

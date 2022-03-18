@@ -38,6 +38,6 @@ class StartFragment : Fragment() {
     }
 
     private fun navigateToPlaySettings() {
-        findTopNavController().navigate(R.id.action_tabsFragment_to_playSettingsFragment)
+        findTopNavController().navigate(R.id.action_tabs_dest_to_play_settings_dest)
     }
 }

@@ -1,29 +1,51 @@
 package com.v.nevi.p.sv.android.math.screens.play
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
+import android.os.Parcelable
+import android.view.View
+import android.widget.Button
 import androidx.lifecycle.*
-import com.v.nevi.p.sv.android.math.databinding.ManualInputViewBinding
-import com.v.nevi.p.sv.android.math.databinding.RecyclerViewOptionsAnswerBinding
 import com.v.nevi.p.sv.android.math.model.Scene
 import com.v.nevi.p.sv.android.math.model.StatisticsItem
 import com.v.nevi.p.sv.android.math.model.Task
-import com.v.nevi.p.sv.android.math.screens.play.adapters.AnswerOptionsAdapter
+import com.v.nevi.p.sv.android.math.model.data.Result
+import com.v.nevi.p.sv.android.math.model.data.source.HistoryRepository
 import com.v.nevi.p.sv.android.math.utils.Event
+import com.v.nevi.p.sv.android.math.utils.getCurrentDate
 import com.v.nevi.p.sv.android.math.views.CalculatorView
+import kotlinx.coroutines.launch
 
 interface TimeListener{
 
-    fun checkTime(time: Int)
+    fun checkTime(time: Long)
 }
 
 
-class PlayViewModel:ViewModel(),CalculatorView.OnEqualMarkClickListener,TimeListener {
-
+class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),CalculatorView.OnEqualMarkClickListener,TimeListener {
 
     private val scene = Scene()
 
+    private val _onFinishPlayEvent: MutableLiveData<Event<Parcelable>> = MutableLiveData()
+    val onFinishPlayEvent: LiveData<Event<Parcelable>> = _onFinishPlayEvent
+
+    fun finishPlay(){
+        viewModelScope.launch{
+            if(!scene.isEmptyHistoryPlay())
+                repository.getHistoryByDate(getCurrentDate()).let {
+                    val historyPlay = scene.getHistoryPlay()
+                    if(it is Result.Success){
+                        historyPlay.update(it.data)
+                        repository.updateHistory(historyPlay)
+                    }else{
+                        repository.saveHistory(historyPlay)
+                    }
+                }
+            _onFinishPlayEvent.value = Event(scene.historyPlay)
+        }
+    }
+
+    fun saveResult(){
+
+    }
     private val _newTaskLiveData:MutableLiveData<Task> = MutableLiveData()
 
     private val _stringRepresentationTaskLiveData: LiveData<String> = _newTaskLiveData.map{
@@ -38,7 +60,18 @@ class PlayViewModel:ViewModel(),CalculatorView.OnEqualMarkClickListener,TimeList
     private val _itemPlayHistory:MutableLiveData<StatisticsItem.ItemPlayHistory> = MutableLiveData()
     val itemPlayHistory = _itemPlayHistory
 
-    override fun onEqualClick(answer:Long) {
+    override fun onEqualClick(result:Long) {
+        checkAnswer(result)
+    }
+
+    fun onAnswerSelected(v: View) {
+        if (v is Button) {
+            val answer = v.text.toString().toLong()
+            checkAnswer(answer)
+        }
+    }
+
+    private fun checkAnswer(answer: Long){
         createItemHistory(answer)
         updateNumbersAnswers(scene.numberCorrectAnswers,scene.numberInCorrectAnswers)
         if(scene.isTasksOver()){
@@ -72,6 +105,19 @@ class PlayViewModel:ViewModel(),CalculatorView.OnEqualMarkClickListener,TimeList
         setTimerWork(true)
     }
 
+
+    private fun continuePlay(){
+        setTimerWork(true)
+    }
+
+    private val _onPausePlayEvent:MutableLiveData<Event<Unit>> = MutableLiveData()
+    val onPausePlayEvent:LiveData<Event<Unit>> = _onPausePlayEvent
+
+    fun pausePlay(){
+        setTimerWork(false)
+        _onPausePlayEvent.value = Event(Unit)
+    }
+
     private val _timeIsWork:MutableLiveData<Boolean> = MutableLiveData()
     val timeIsWork:MutableLiveData<Boolean> = _timeIsWork
 
@@ -79,28 +125,8 @@ class PlayViewModel:ViewModel(),CalculatorView.OnEqualMarkClickListener,TimeList
         _timeIsWork.value = b
     }
 
-    fun createBinding(inflater: LayoutInflater,parent:ViewGroup?):ViewDataBinding{
-        return if(scene.numberAnswers==0){
-            ManualInputViewBinding.inflate(inflater,parent,false).apply {
-                viewmodel = this@PlayViewModel
-            }
-        }else{
-            RecyclerViewOptionsAnswerBinding.inflate(inflater,parent,false).apply {
-                viewmodel = this@PlayViewModel
-                recyclerViewOptions.adapter = AnswerOptionsAdapter(this@PlayViewModel)
-            }
-        }
-    }
-
-    private val _onFinishGameEvent:MutableLiveData<Event<Unit>> = MutableLiveData()
-    val onFinishGameEvent:LiveData<Event<Unit>> = _onFinishGameEvent
-
-    private fun finishPlay(){
-        _onFinishGameEvent.value = Event(Unit)
-    }
-
-    override fun checkTime(time: Int) {
-        if(time == 0) return
+    override fun checkTime(time: Long) {
+        if(time == 0L) return
         scene.updateTime(time)
         if(scene.isTimeOver()){
             finishPlay()
@@ -116,5 +142,21 @@ class PlayViewModel:ViewModel(),CalculatorView.OnEqualMarkClickListener,TimeList
     private fun updateNumbersAnswers(numberCorrectAnswers:Int, numberInCorrectAnswers:Int){
         _numberCorrectAnswers.value = numberCorrectAnswers
         _numberInCorrectAnswers.value = numberInCorrectAnswers
+    }
+
+    fun setResult(eventMenu:Int) {
+        when(eventMenu){
+            EventMenu.CONTINUE.ordinal-> continuePlay()
+            EventMenu.TOTALS.ordinal->finishPlay()
+            EventMenu.EXIT.ordinal->exitPlay()
+        }
+    }
+
+    private val _onExitEvent:MutableLiveData<Event<Unit>> = MutableLiveData()
+    val onExitEvent:LiveData<Event<Unit>> = _onExitEvent
+
+    private fun exitPlay() {
+        finishPlay()
+        _onExitEvent.value = Event(Unit)
     }
 }

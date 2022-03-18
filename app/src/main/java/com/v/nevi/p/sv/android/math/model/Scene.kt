@@ -3,9 +3,12 @@ package com.v.nevi.p.sv.android.math.model
 import com.v.nevi.p.sv.android.math.model.generator.Generator
 import com.v.nevi.p.sv.android.math.model.playsettings.PlaySettings
 
-class Scene {
+class Scene{
+
+
 
     private val playSettings: PlaySettings = PlaySettings.getInstance()
+    var historyPlay = HistoryPlay()
 
     val numberAnswers
         get() = playSettings.numberAnswers
@@ -14,25 +17,30 @@ class Scene {
         get() = playSettings.gameDuration
 
     val numberCorrectAnswers
-        get() = HistoryPlay.numberCorrectAnswers
+        get() = historyPlay.numberCorrectAnswers
 
     val numberInCorrectAnswers
-        get() = HistoryPlay.numberInCorrectAnswers
+        get() = historyPlay.numberInCorrectAnswers
 
-    private val generator = Generator(playSettings)
+    private var generator = Generator(playSettings)
 
     fun createItemPlayHistory(answer: Long): StatisticsItem.ItemPlayHistory =
-        HistoryPlay.createItemPlayHistory(generator.getLastTask(), answer)
+        historyPlay.createItemPlayHistory(generator.getLastTask(), answer)
 
     fun getAnswers() = generator.getAnswers()
 
     fun getTask() = generator.generateTask()
 
-    fun isTasksOver() = playSettings.numberTasks == HistoryPlay.numberResolvedAnswers
+    fun isTasksOver() = playSettings.numberTasks == historyPlay.numberResolvedTasks
 
-    fun isTimeOver() = playSettings.gameDuration == HistoryPlay.gameDuration
+    fun isTimeOver() = playSettings.gameDuration.toLong() == historyPlay.gameDuration
 
-    fun updateTime(time: Int) {
-        HistoryPlay.updateTime(time)
+    fun updateTime(time: Long) {
+        historyPlay.updateTime(time)
     }
+
+    fun getHistoryPlay() = historyPlay.createEntityForDb()
+
+    fun isEmptyHistoryPlay(): Boolean  = historyPlay.isEmpty()
+
 }

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.v.nevi.p.sv.android.math.screens.tabs.history.HistoryViewModel" />
+
+    </data>
 <androidx.recyclerview.widget.RecyclerView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/recycler_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    app:history_items="@{viewmodel.historyList}">
 
 </androidx.recyclerview.widget.RecyclerView>
 </layout>

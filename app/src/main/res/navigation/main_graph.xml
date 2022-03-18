@@ -9,7 +9,7 @@
         android:name="com.v.nevi.p.sv.android.math.screens.tabs.TabsFragment"
         android:label="TabsFragment" >
         <action
-            android:id="@+id/action_tabsFragment_to_playSettingsFragment"
+            android:id="@+id/action_tabs_dest_to_play_settings_dest"
             app:destination="@id/play_settings_dest" />
     </fragment>
     <fragment
@@ -17,7 +17,7 @@
         android:name="com.v.nevi.p.sv.android.math.screens.playsettings.PlaySettingsFragment"
         android:label="PlaySettingsFragment" >
         <action
-            android:id="@+id/action_playSettingsFragment_to_playFragment"
+            android:id="@+id/action_play_settings_dest_to_play_dest"
             app:destination="@id/play_dest" />
         <action
             android:id="@+id/action_play_settings_dest_to_enter_value_dest"
@@ -27,22 +27,38 @@
         android:id="@+id/play_dest"
         android:name="com.v.nevi.p.sv.android.math.screens.play.PlayFragment"
         android:label="PlayFragment" >
+
         <action
-            android:id="@+id/action_play_dest_to_statisticsFragment"
-            app:destination="@id/statistics_dest" />
+            android:id="@+id/action_play_dest_to_pause_dialog_dest"
+            app:destination="@id/pause_dialog_dest" />
     </fragment>
     <fragment
         android:id="@+id/statistics_dest"
         android:name="com.v.nevi.p.sv.android.math.screens.statistics.StatisticsFragment"
-        android:label="StatisticsFragment" />
+        android:label="StatisticsFragment">
+
+    </fragment>
     <dialog
         android:id="@+id/enter_value_dest"
         android:name="com.v.nevi.p.sv.android.math.screens.playsettings.range.EnterValueDialogFragment"
-        android:label="enter_value_dest" >
+        android:label="enter_value_dest">
+        <action
+            android:id="@+id/action_enter_value_dest_to_end_game_dialog_dest"
+            app:destination="@id/pause_dialog_dest" />
+    </dialog>
+    <dialog
+        android:id="@+id/pause_dialog_dest"
+        android:name="com.v.nevi.p.sv.android.math.screens.play.PausePlayDialogFragment"
+        android:label="EndGameDialogFragment" >
+        <action
+            android:id="@+id/action_pause_dialog_dest_to_statistics_dest"
+            app:destination="@id/statistics_dest" />
+    </dialog>
+
 
 <!--        <argument-->
 <!--            android:name="currentValue"-->
 <!--            app:argType="integer" />-->
 
-    </dialog>
+
 </navigation>
