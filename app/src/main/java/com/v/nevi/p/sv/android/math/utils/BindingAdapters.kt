@@ -12,6 +12,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import com.v.nevi.p.sv.android.math.R
 import com.v.nevi.p.sv.android.math.model.StatisticsItem
 import com.v.nevi.p.sv.android.math.model.data.History
+import com.v.nevi.p.sv.android.math.screens.play.ChronometerSettings
 import com.v.nevi.p.sv.android.math.screens.play.PlayViewModel
 import com.v.nevi.p.sv.android.math.screens.play.TimeListener
 import com.v.nevi.p.sv.android.math.screens.play.adapters.AnswerOptionsAdapter
@@ -37,17 +38,20 @@ fun setTimeListener(chronometer: Chronometer,listener: TimeListener){
 }
 
 @BindingAdapter(value=["is_work"])
-fun setIsWork(chronometer: Chronometer,isWork:Boolean){
-    if(isWork){
+fun setIsWork(chronometer: Chronometer,settings:ChronometerSettings?){
+    if(settings==null) return
+    settings.time?.let {
+        if(it==0L) return@let
+        setBase(chronometer,it)
+    }
+    if(settings.isWork){
         chronometer.start()
     }else{
         chronometer.stop()
     }
 }
 
-@BindingAdapter(value = ["base"])
 fun setBase(chronometer: Chronometer,seconds:Long){
-    Log.d("MyTagTimeBase",seconds.toString())
     chronometer.base = SystemClock.elapsedRealtime() - seconds*1000
 }
 

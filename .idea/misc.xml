@@ -8,26 +8,33 @@
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_backspace_24.xml" value="0.173" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.173" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.173" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.1545" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_play_circle_outline_24.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ic_quality.xml" value="0.109" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/riple_button.xml" value="0.173" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple.xml" value="0.1545" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_backspace_button.xml" value="0.173" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_button.xml" value="0.1565" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_settings_button.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_shape_start_button.xml" value="0.1545" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/ripple_start_button.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/settings_button.xml" value="0.1805" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_button.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_finish_button.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_start_button.xml" value="0.1545" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/calculator_view.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/dialog_enter_value.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/dialog_exit_game.xml" value="0.1" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/dialog_pause_game.xml" value="0.1" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_choose_range_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_dialog_end_game.xml" value="0.146875" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_enter_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_enter_range_dialog.xml" value="0.1" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_enter_value_dialog.xml" value="0.25416666666666665" />
-        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_history.xml" value="0.11302083333333333" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_history.xml" value="0.2" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_play.xml" value="0.264" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_play_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_start.xml" value="0.25416666666666665" />
@@ -45,6 +52,9 @@
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/recycler_view_options_answer.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/shape_finish_button.xml" value="0.171875" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1805" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.124" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/xml/root_preferences.xml" value="0.1" />
       </map>
     </option>
   </component>

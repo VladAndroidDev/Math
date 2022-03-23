@@ -14,7 +14,7 @@ class EnterValueViewModel : ViewModel() {
     private val _onDoneEvent: MutableLiveData<Event<Int>> = MutableLiveData()
     val onDoneEvent: LiveData<Event<Int>> = _onDoneEvent
 
-    lateinit var value: String
+     var value=""
 
     fun onCancelClick() {
         _onCancelEvent.value = Event(Unit)
@@ -25,10 +25,10 @@ class EnterValueViewModel : ViewModel() {
             value="0"
         }else {
             if (value.length > 4) {
-                if (value[0] == '-'){
-                    value = value.substring(0,5)
+                value = if (value[0] == '-'){
+                    value.substring(0,5)
                 }else{
-                    value = value.substring(0,4)
+                    value.substring(0,4)
                 }
             }
         }

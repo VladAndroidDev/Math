@@ -9,8 +9,12 @@
             type="com.v.nevi.p.sv.android.math.screens.tabs.history.HistoryViewModel" />
 
     </data>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 <androidx.recyclerview.widget.RecyclerView
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/recycler_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,4 +22,21 @@
     app:history_items="@{viewmodel.historyList}">
 
 </androidx.recyclerview.widget.RecyclerView>
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fb_delete_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="28dp"
+                android:backgroundTint="@color/green_500"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:onClick="@{()->viewmodel.deleteAllHistories()}"/>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </FrameLayout>
 </layout>

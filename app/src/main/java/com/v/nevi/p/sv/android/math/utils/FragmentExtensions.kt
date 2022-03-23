@@ -13,11 +13,19 @@ fun Fragment.findTopNavController():NavController{
     return topLevelHost?.navController ?: findNavController()
 }
 
-fun Fragment.setResult(result: Int,key:String){
+fun <T>Fragment.setResult(key:String,result: T){
     findNavController().previousBackStackEntry?.savedStateHandle?.set(key,result)
 }
 
-fun Fragment.getResult(key: String)=findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(key)
+fun <T>Fragment.getResult(key: String, resultHandler:(T)->Unit) {
+    val  liveData = findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<T>(key)
+    liveData?.observe(viewLifecycleOwner){
+        if(it!=null){
+            resultHandler.invoke(it)
+            liveData.value = null
+        }
+    }
+}
 
 fun Fragment.getFactoryWithRepository():HistoriesRepositoryViewModelFactory{
     val repository = (requireContext().applicationContext as App).repository

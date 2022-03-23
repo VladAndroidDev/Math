@@ -1,5 +1,6 @@
 package com.v.nevi.p.sv.android.math.screens.playsettings.viewpager
 
+import android.util.Log
 import android.widget.CompoundButton
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,13 +10,12 @@ import com.v.nevi.p.sv.android.math.model.playsettings.OperationSettings
 import com.v.nevi.p.sv.android.math.model.playsettings.PlaySettings
 import com.v.nevi.p.sv.android.math.utils.Event
 
-class PagerViewModel(position: Int) : ViewModel() {
+class PagerViewModel(private val position: Int) : ViewModel() {
 
-    private val _onEnterFirstValueClickEvent: MutableLiveData<Event<Int>> = MutableLiveData()
-    val onEnterFirstValueClickEvent: LiveData<Event<Int>> = _onEnterFirstValueClickEvent
+    val operationSettings:OperationSettings = PlaySettings.getInstance().operationsSettings[position]
 
-    private val _onEnterSecondValueClickEvent: MutableLiveData<Event<Int>> = MutableLiveData()
-    val onEnterSecondValueClickEvent: LiveData<Event<Int>> = _onEnterSecondValueClickEvent
+    private val _onEnterValueClickEvent: MutableLiveData<Event<Int>> = MutableLiveData()
+    val onEnterValueClickEvent: LiveData<Event<Int>> = _onEnterValueClickEvent
 
     private val _showToastEvent: MutableLiveData<Event<Int>> = MutableLiveData()
     val showToastEvent: LiveData<Event<Int>> = _showToastEvent
@@ -24,23 +24,24 @@ class PagerViewModel(position: Int) : ViewModel() {
         _showToastEvent.value = Event(msgId)
     }
 
-    val operationSettings: OperationSettings =
-        PlaySettings.getInstance().arrayOperationSettings[position]
-
     private var firstWasClicked: Boolean = false
 
     fun onEnterFirstValueClick() {
         firstWasClicked = true
-        _onEnterFirstValueClickEvent.value = Event(operationSettings.valueStartRange)
+        _onEnterValueClickEvent.value = Event(position)
     }
 
     fun onEnterSecondValueClick() {
         firstWasClicked = false
-        _onEnterSecondValueClickEvent.value = Event(operationSettings.valueEndRange)
+        _onEnterValueClickEvent.value = Event(position)
     }
 
     fun setResult(newValue: Int) {
-        if (newValue > operationSettings.valueEndRange || newValue < operationSettings.valueStartRange) {
+        if (!firstWasClicked && newValue <= operationSettings.valueStartRange) {
+            showToast(R.string.msg_error_incorrect_value)
+            return
+        }
+        if (firstWasClicked && newValue >= operationSettings.valueEndRange) {
             showToast(R.string.msg_error_incorrect_value)
             return
         }

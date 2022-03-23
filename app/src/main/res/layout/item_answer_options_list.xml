@@ -14,12 +14,15 @@
         android:id="@+id/answer_options_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:padding="8dp"
+        android:maxLines="1"
+        android:padding="12dp"
         android:layout_margin="2dp"
         android:gravity="center"
         android:background="@drawable/ripple_button"
         android:onClick="@{(v)->viewmodel.onAnswerSelected(v)}"
+        app:autoSizeMaxTextSize="32sp"
+        app:autoSizeMinTextSize="16sp"
+        app:autoSizeTextType="uniform"
         />
 
 </layout>

@@ -9,10 +9,87 @@
             type="com.v.nevi.p.sv.android.math.screens.tabs.history.HeaderItemHistoryList" />
     </data>
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cardCornerRadius="4dp"
+        >
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:background="@color/green_500">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/tasks_cards_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/correct_answers_card_view"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_quiz_24"
+                    android:padding="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.totalTasks}"
+                    android:padding="2dp"/>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/correct_answers_card_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tasks_cards_view"
+            app:layout_constraintEnd_toStartOf="@id/time_card_view"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_check_24"
+                    android:padding="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.correctAnswers}"
+                    android:padding="2dp"/>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/time_card_view"
@@ -20,72 +97,46 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/total_tasks_card_view"
+            app:layout_constraintStart_toEndOf="@id/correct_answers_card_view"
+            app:layout_constraintEnd_toStartOf="@id/average_time_card_view"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="18dp">
-
-            <ImageView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_access_time_24"/>
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="8dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{item.timeInGame}"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_access_time_24"
+                    android:padding="14dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{item.timeInGame}"
+                    android:padding="2dp"/>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
-            android:id="@+id/total_tasks_card_view"
+            android:id="@+id/average_time_card_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/time_card_view"
+            app:layout_constraintBottom_toBottomOf="@id/time_card_view"
             app:layout_constraintStart_toEndOf="@id/time_card_view"
-            app:layout_constraintEnd_toStartOf="@id/number_correct_answers_card_view"
-            >
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="18dp">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_quiz_24"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{item.totalTasks}"/>
-
-
-            </LinearLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/number_correct_answers_card_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/total_tasks_card_view"
             app:layout_constraintEnd_toStartOf="@id/quality_card_view"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
             >
 
             <LinearLayout
@@ -93,58 +144,80 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:padding="18dp">
+                android:padding="8dp">
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/average_time_image"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_check_24"/>
+                    android:orientation="vertical"
+                    android:padding="2dp"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_access_time_24"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/delimetr_color"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_quiz_24"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.correctAnswers}"/>
-
+                    android:text="@{item.averageTime}"
+                    android:padding="2dp"/>
 
             </LinearLayout>
 
-
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/quality_card_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            app:layout_constraintStart_toEndOf="@id/average_time_card_view"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/number_correct_answers_card_view"
             app:layout_constraintEnd_toEndOf="parent"
-            >
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:cardCornerRadius="4dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:padding="18dp">
+                android:padding="8dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_quality"/>
+                    android:src="@drawable/ic_quality"
+                    android:padding="10dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{item.quality}"/>
-
+                    android:text="@{item.quality}"
+                    android:padding="2dp"/>
 
             </LinearLayout>
 
 
+
         </androidx.cardview.widget.CardView>
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

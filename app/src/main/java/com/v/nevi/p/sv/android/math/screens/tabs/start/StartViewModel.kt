@@ -14,4 +14,11 @@ class StartViewModel: ViewModel(){
         _startPlaySettingsEvent.value = Event(Unit)
     }
 
+    private val _openSettingsEvent = MutableLiveData<Event<Unit>>()
+    val openSettingsEvent:LiveData<Event<Unit>> = _openSettingsEvent
+
+    fun openSettings(){
+        _openSettingsEvent.value = Event(Unit)
+    }
+
 }

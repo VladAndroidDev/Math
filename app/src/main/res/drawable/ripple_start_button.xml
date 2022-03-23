@@ -2,6 +2,6 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="@color/black">
 
-    <item android:drawable="@drawable/background_start_button"/>
+    <item android:drawable="@drawable/start_button"/>
 
 </ripple>

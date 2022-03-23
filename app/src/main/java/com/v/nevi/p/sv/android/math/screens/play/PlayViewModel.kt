@@ -1,17 +1,21 @@
 package com.v.nevi.p.sv.android.math.screens.play
 
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import androidx.lifecycle.*
 import com.v.nevi.p.sv.android.math.model.Scene
 import com.v.nevi.p.sv.android.math.model.StatisticsItem
 import com.v.nevi.p.sv.android.math.model.Task
+import com.v.nevi.p.sv.android.math.model.data.History
 import com.v.nevi.p.sv.android.math.model.data.Result
 import com.v.nevi.p.sv.android.math.model.data.source.HistoryRepository
 import com.v.nevi.p.sv.android.math.utils.Event
 import com.v.nevi.p.sv.android.math.utils.getCurrentDate
 import com.v.nevi.p.sv.android.math.views.CalculatorView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 interface TimeListener{
@@ -27,25 +31,42 @@ class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),Cal
     private val _onFinishPlayEvent: MutableLiveData<Event<Parcelable>> = MutableLiveData()
     val onFinishPlayEvent: LiveData<Event<Parcelable>> = _onFinishPlayEvent
 
+    private val coroutineScope = CoroutineScope(Dispatchers.Main.immediate)
+
     fun finishPlay(){
-        viewModelScope.launch{
-            if(!scene.isEmptyHistoryPlay())
-                repository.getHistoryByDate(getCurrentDate()).let {
-                    val historyPlay = scene.getHistoryPlay()
-                    if(it is Result.Success){
-                        historyPlay.update(it.data)
-                        repository.updateHistory(historyPlay)
-                    }else{
-                        repository.saveHistory(historyPlay)
-                    }
-                }
+        if (!scene.isEmptyHistoryPlay()) {
             _onFinishPlayEvent.value = Event(scene.historyPlay)
+        }else{
+            _onExitEvent.value= Event(Unit)
         }
     }
 
-    fun saveResult(){
+    private var todayHistory:History? = null
 
+    init {
+        coroutineScope.launch {
+                repository.getHistoryByDate(getCurrentDate()).let {
+                    if (it is Result.Success) {
+                        todayHistory = it.data
+                    }
+                }
+            }
+        }
+
+    fun saveResult() {
+        coroutineScope.launch {
+            if(!scene.isEmptyHistoryPlay()) {
+                val historyPlay = scene.getHistoryPlay()
+                if (todayHistory != null) {
+                    historyPlay.update(todayHistory!!)
+                    repository.updateHistory(historyPlay)
+                } else {
+                    repository.saveHistory(historyPlay)
+                }
+            }
+        }
     }
+
     private val _newTaskLiveData:MutableLiveData<Task> = MutableLiveData()
 
     private val _stringRepresentationTaskLiveData: LiveData<String> = _newTaskLiveData.map{
@@ -102,30 +123,36 @@ class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),Cal
         getTask()
         getAnswers()
         updateNumbersAnswers(scene.numberCorrectAnswers,scene.numberInCorrectAnswers)
-        setTimerWork(true)
+        //setTimerWork(true)
     }
 
 
-    private fun continuePlay(){
-        setTimerWork(true)
+    fun continuePlay(){
+        Log.d("MyTagSeconds",scene.timePlay.toString())
+        setTimerWork(true,scene.timePlay)
     }
 
-    private val _onPausePlayEvent:MutableLiveData<Event<Unit>> = MutableLiveData()
-    val onPausePlayEvent:LiveData<Event<Unit>> = _onPausePlayEvent
+    private val _onPausePlayEvent:MutableLiveData<Event<Boolean>> = MutableLiveData()
+    val onPausePlayEvent:LiveData<Event<Boolean>> = _onPausePlayEvent
 
     fun pausePlay(){
-        setTimerWork(false)
-        _onPausePlayEvent.value = Event(Unit)
+        setTimerWork(false,null)
     }
 
-    private val _timeIsWork:MutableLiveData<Boolean> = MutableLiveData()
-    val timeIsWork:MutableLiveData<Boolean> = _timeIsWork
+    fun pausePlayEvent(){
+        pausePlay()
+        _onPausePlayEvent.value = Event(scene.isEmptyHistoryPlay())
+    }
 
-    private fun setTimerWork(b:Boolean){
-        _timeIsWork.value = b
+    private val _timeIsWork:MutableLiveData<ChronometerSettings> = MutableLiveData()
+    val timeIsWork:MutableLiveData<ChronometerSettings> = _timeIsWork
+
+    private fun setTimerWork(b:Boolean,time: Long?){
+        _timeIsWork.value = ChronometerSettings(b,time)
     }
 
     override fun checkTime(time: Long) {
+        Log.d("MyTagChronometer",time.toString())
         if(time == 0L) return
         scene.updateTime(time)
         if(scene.isTimeOver()){
@@ -144,11 +171,17 @@ class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),Cal
         _numberInCorrectAnswers.value = numberInCorrectAnswers
     }
 
-    fun setResult(eventMenu:Int) {
+    fun setResult(boolean: Boolean){
+        if(boolean){
+            exitPlay()
+        }
+    }
+
+    fun setResult(eventMenu:EventMenu) {
         when(eventMenu){
-            EventMenu.CONTINUE.ordinal-> continuePlay()
-            EventMenu.TOTALS.ordinal->finishPlay()
-            EventMenu.EXIT.ordinal->exitPlay()
+            EventMenu.CONTINUE-> continuePlay()
+            EventMenu.TOTALS->finishPlay()
+            EventMenu.EXIT->exitPlay()
         }
     }
 
@@ -156,7 +189,19 @@ class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),Cal
     val onExitEvent:LiveData<Event<Unit>> = _onExitEvent
 
     private fun exitPlay() {
-        finishPlay()
         _onExitEvent.value = Event(Unit)
     }
+
+
+    private val _onBackPressedEvent:MutableLiveData<Event<Unit>> = MutableLiveData()
+    val onBackPressedEvent = _onBackPressedEvent
+
+    fun backPressed(emptyHistoryCallback:()->Unit) {
+        if(scene.isEmptyHistoryPlay()){
+            emptyHistoryCallback.invoke()
+        }else{
+            _onBackPressedEvent.value = Event(Unit)
+        }
+    }
 }
+data class ChronometerSettings(val isWork:Boolean,val time:Long?)

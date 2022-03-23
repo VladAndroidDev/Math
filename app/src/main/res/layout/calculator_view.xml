@@ -2,14 +2,16 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="24dp"
+    android:paddingEnd="14dp"
+    android:paddingStart="14dp"
+    android:paddingTop="8dp"
     android:stretchColumns="*">
     <TableRow>
 
         <TextView
             android:id="@+id/answer"
             android:text="@string/your_answer"
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:padding="12dp"
             android:layout_column="0"
             android:layout_span="3"
@@ -17,8 +19,8 @@
 
         <android.widget.Button
             android:id="@+id/button_remove"
-            android:theme="@style/CalculateButtonsStyle"
             android:background="@drawable/ripple_backspace_button"
+            android:padding="12dp"
             />
 
     </TableRow>
@@ -27,22 +29,30 @@
         <android.widget.Button
             android:id="@+id/button_seven"
             android:text="7"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_eight"
             android:text="8"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_nine"
             android:text="9"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_zero"
             android:text="0"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
     </TableRow>
     <TableRow>
@@ -50,22 +60,30 @@
         <android.widget.Button
             android:id="@+id/button_four"
             android:text="4"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_five"
             android:text="5"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_six"
             android:text="6"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_minus"
             android:text="-"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
     </TableRow>
     <TableRow>
@@ -73,22 +91,30 @@
         <android.widget.Button
             android:id="@+id/button_one"
             android:text="1"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_two"
             android:text="2"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_three"
             android:text="3"
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
         <android.widget.Button
             android:id="@+id/button_equal"
             android:text="="
-            android:theme="@style/CalculateButtonsStyle"/>
+            android:background="@drawable/ripple_button"
+            android:theme="@style/CalculateButtonsStyle"
+            android:layout_margin="1dp"/>
 
     </TableRow>
 </TableLayout>

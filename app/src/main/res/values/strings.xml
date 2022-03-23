@@ -20,14 +20,14 @@
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
     <string name="enter_value_here">Enter value here</string>
-    
-    <string name="msg_error_incorrect_value">The start value of the range cannot be greater than the end value</string>
+
+    <string name="msg_error_incorrect_value">Range start value cannot be greater than or equal to end value</string>
     <string name="time">minutes</string>
     <string name="not_limited">Not limited</string>
     <string name="tasks">tasks</string>
     <string name="manual_input">Manual input</string>
     <string name="variants">variants</string>
-    <string name="your_answer">Your answer?</string>
+    <string name="your_answer">Enter your answer</string>
     <string name="enter_the_number">Enter the number</string>
     <string name="text_time">Time</string>
     <string name="average_time">Average per task</string>
@@ -40,7 +40,20 @@
     <string name="totals">Totals</string>
     <string name="finish">Finish</string>
     <string name="pause">Pause</string>
-    <string name="exit">Exit</string>
+    <string name="messages_header">Messages</string>
+    <!-- Preference Titles -->
+    <string name="sync_header">Sync</string>
+    <string name="signature_title">Your signature</string>
+
+    <!-- Messages Preferences -->
+    <string name="reply_title">Default reply action</string>
+    <string name="sync_title">Sync email periodically</string>
+
+    <!-- Sync Preferences -->
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string-array name="tabs">
 
         <item>@string/addition</item>
@@ -49,4 +62,12 @@
         <item>@string/division</item>
 
     </string-array>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="rate_us">Rate us</string>
+    <string name="exit">Exit</string>
+    <string name="this_operation_will_take_values_in_this_range">This operation will take values in this range</string>
+    <string name="toast_msg_must_be_enabled">At least one operation must be enabled</string>
+    <string name="yes_button">Yes</string>
+    <string name="no_button">No</string>
+    <string name="do_you_really_want_exit">Do you really want to go out?</string>
 </resources>

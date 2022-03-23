@@ -4,6 +4,7 @@
     <data>
 
         <import type="com.v.nevi.p.sv.android.math.screens.play.EventMenu"/>
+        <import type="android.view.View"/>
         <variable
             name="viewmodel"
             type="com.v.nevi.p.sv.android.math.screens.play.PausePlayViewModel" />
@@ -38,7 +39,8 @@
             android:text="@string/totals"
             android:onClick="@{(v)->viewmodel.onItemMenuClickEvent(v)}"
             android:layout_marginTop="12dp"
-            android:tag="@{EventMenu.TOTALS}"/>
+            android:tag="@{EventMenu.TOTALS}"
+            android:visibility="@{viewmodel.emptyHistoryPlay ? View.GONE : View.VISIBLE}"/>
 
         <Button
             android:layout_width="wrap_content"

@@ -1,27 +1,28 @@
 package com.v.nevi.p.sv.android.math.model.generator
 
-import android.util.Log
+
 import com.v.nevi.p.sv.android.math.model.Task
-import com.v.nevi.p.sv.android.math.model.playsettings.OperationSettings
 import com.v.nevi.p.sv.android.math.model.playsettings.PlaySettings
 
 class Generator(private val playSettings: PlaySettings) {
 
-    private lateinit var operationSettings:OperationSettings
+    private val enabledOperations = playSettings.getEnabledOperations()
+    private var randomOperationIndex:Int = 0
+    private lateinit var task: Task
 
     fun generateTask(): Task {
-        val enabledOperationsSettings = playSettings.getEnabledOperationSettings()
-        operationSettings = if (enabledOperationsSettings.size > 1) {
-            val indexRandomOperation = GenerateRandomNumber.execute(0, enabledOperationsSettings.size - 1)
-            enabledOperationsSettings[indexRandomOperation]
+        val operation = if (enabledOperations.size > 1) {
+            randomOperationIndex = GenerateRandomNumber.execute(0, enabledOperations.size - 1)
+            enabledOperations[randomOperationIndex]
         } else {
-            enabledOperationsSettings[0]
+            enabledOperations[0]
         }
-        return operationSettings.operation.generateTask(operationSettings.valueStartRange,operationSettings.valueEndRange)
+        task = operation.generateTask()
+        return task
     }
 
-    fun getAnswers() = operationSettings.operation.generateAnswers(playSettings.numberAnswers)
+    fun getAnswers() = enabledOperations[randomOperationIndex].generateAnswers(playSettings.numberAnswers,task.answer)
 
-    fun getLastTask() = operationSettings.operation.task!!
+    fun getLastTask() = task
 
 }

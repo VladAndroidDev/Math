@@ -5,8 +5,6 @@ import com.v.nevi.p.sv.android.math.model.playsettings.PlaySettings
 
 class Scene{
 
-
-
     private val playSettings: PlaySettings = PlaySettings.getInstance()
     var historyPlay = HistoryPlay()
 
@@ -33,7 +31,7 @@ class Scene{
 
     fun isTasksOver() = playSettings.numberTasks == historyPlay.numberResolvedTasks
 
-    fun isTimeOver() = playSettings.gameDuration.toLong() == historyPlay.gameDuration
+    fun isTimeOver() = playSettings.gameDuration.toLong() == historyPlay.timePlay
 
     fun updateTime(time: Long) {
         historyPlay.updateTime(time)
@@ -43,4 +41,8 @@ class Scene{
 
     fun isEmptyHistoryPlay(): Boolean  = historyPlay.isEmpty()
 
+    val timePlay:Long
+        get() {
+            return historyPlay.timePlay
+        }
 }

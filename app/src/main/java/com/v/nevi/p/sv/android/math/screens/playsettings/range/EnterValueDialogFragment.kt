@@ -24,7 +24,6 @@ class EnterValueDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = DialogEnterValueBinding.inflate(layoutInflater).apply {
-            viewModel.value = arguments?.getInt(KEY_CURRENT_VALUE).toString()
             this.viewmodel = viewModel
         }
         binding.lifecycleOwner = this
@@ -38,12 +37,12 @@ class EnterValueDialogFragment : DialogFragment() {
             dismiss()
         })
         viewModel.onDoneEvent.observe(this, EventObserver {
-            setResult(it,PagerFragment.KEY_NEW_VALUE)
+            setResult(arguments?.getInt(KEY_POSITION).toString(),it)
             dismiss()
         })
     }
 
     companion object {
-        const val KEY_CURRENT_VALUE = "current-value"
+        const val KEY_POSITION = "position"
     }
 }

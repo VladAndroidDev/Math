@@ -2,6 +2,7 @@ package com.v.nevi.p.sv.android.math.views
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.v.nevi.p.sv.android.math.model.StatisticsItem
@@ -50,6 +51,6 @@ class RecyclerViewHistory(
     fun insert(itemPlayTasks: StatisticsItem.ItemPlayHistory){
         val historyAdapter = adapter as HistoryAdapter
         historyAdapter.insertInStart(itemPlayTasks)
-        layoutManager?.scrollToPosition(historyAdapter.itemCount)
+        layoutManager?.scrollToPosition(adapter!!.itemCount-1)
     }
 }

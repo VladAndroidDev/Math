@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.v.nevi.p.sv.android.math.R
 import com.v.nevi.p.sv.android.math.databinding.FragmentStatisticBinding
+import com.v.nevi.p.sv.android.math.utils.EventObserver
 import com.v.nevi.p.sv.android.math.utils.HistoryPlayViewModelFactory
 import com.v.nevi.p.sv.android.math.utils.findTopNavController
 import com.v.nevi.p.sv.android.math.utils.getFactoryWithPlayHistory
@@ -22,15 +25,9 @@ class StatisticsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == 16908332) {
-            findTopNavController().popBackStack(R.id.tabs_dest, false)
-            return true
+        requireActivity().onBackPressedDispatcher.addCallback(this){
+            navigateToNextAction()
         }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreateView(
@@ -42,6 +39,20 @@ class StatisticsFragment : Fragment() {
             viewmodel = viewModel
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setObservers()
+    }
+
+    private fun setObservers(){
+        viewModel.onExitEvent.observe(viewLifecycleOwner,EventObserver{
+            navigateToNextAction()
+        })
+    }
+
+    private fun navigateToNextAction(){
+        findNavController().navigate(R.id.next_action)
     }
 
     companion object{

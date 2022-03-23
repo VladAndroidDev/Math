@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.v.nevi.p.sv.android.math.model.data.source.HistoryRepository
 import com.v.nevi.p.sv.android.math.utils.Event
 
-class PausePlayViewModel():ViewModel() {
+class PausePlayViewModel(val isEmptyHistoryPlay:Boolean):ViewModel() {
 
     private val _onItemMenuClickEvent:MutableLiveData<Event<EventMenu>> = MutableLiveData()
     val onItemMenuClickEvent:LiveData<Event<EventMenu>> = _onItemMenuClickEvent

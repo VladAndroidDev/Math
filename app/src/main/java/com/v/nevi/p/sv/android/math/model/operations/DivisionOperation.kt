@@ -2,32 +2,21 @@ package com.v.nevi.p.sv.android.math.model.operations
 
 import com.v.nevi.p.sv.android.math.model.generator.GenerateRandomNumber
 import com.v.nevi.p.sv.android.math.model.Task
+import kotlinx.parcelize.Parcelize
 
-class DivisionOperation:Operation {
 
-    override var task: Task? = null
+class DivisionOperation(private val startRange:Int, private val endRange:Int):Operation {
 
-    override fun generateTask(startRange:Int,endRange: Int): Task {
-        val answer = GenerateRandomNumber.execute(startRange,endRange)
-        val secondValue = GenerateRandomNumber.execute(startRange,endRange)
-        val firstValue = answer * secondValue
+    override fun generateTask(): Task {
+        val firstValue = GenerateRandomNumber.execute(startRange,endRange)
+        var secondValue:Int
+        do{
+            secondValue = GenerateRandomNumber.execute(startRange,endRange)
+        }while (secondValue==0||firstValue % secondValue!=0)
+        val answer = firstValue/secondValue
         val stringRepresentation = getStringRepresentation(firstValue, secondValue)
-        task = Task(answer.toLong(),stringRepresentation)
-        return task as Task
+        return Task(answer.toLong(),stringRepresentation)
     }
 
-    override fun generateAnswers(numberAnswers:Int):List<Long> {
-        val listAnswers: MutableList<Long> = mutableListOf()
-        val answer = task!!.answer
-        val indexCorrectAnswer=GenerateRandomNumber.execute(0,numberAnswers-1)
-        listAnswers.add(answer)
-        for (i in 0 until numberAnswers){
-            if(i!=indexCorrectAnswer){
-                listAnswers.add(i,GenerateRandomNumber.execute(0,10).toLong())
-            }
-        }
-        return listAnswers
-    }
-
-    override fun getOperationSymbol():Char='÷'
+    override val symbol ='÷'
 }

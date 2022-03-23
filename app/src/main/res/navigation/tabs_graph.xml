@@ -7,13 +7,10 @@
     <fragment
         android:id="@+id/start_dest"
         android:name="com.v.nevi.p.sv.android.math.screens.tabs.start.StartFragment"
-        android:label="start_fragment" />
-    <fragment
-        android:id="@+id/settings_dest"
-        android:name="com.v.nevi.p.sv.android.math.screens.tabs.settings.SettingsFragment"
-        android:label="settings_fragment" />
+        android:label="@string/app_name" />
+
     <fragment
         android:id="@+id/history_dest"
         android:name="com.v.nevi.p.sv.android.math.screens.tabs.history.HistoryFragment"
-        android:label="history_fragment" />
+        android:label="@string/app_name" />
 </navigation>

@@ -32,9 +32,16 @@ class StartFragment : Fragment() {
     }
 
     private fun setupNavigation() {
+        viewModel.openSettingsEvent.observe(viewLifecycleOwner, EventObserver{
+            navigateToSettings()
+        })
         viewModel.startPlaySettingsEvent.observe(viewLifecycleOwner, EventObserver {
             navigateToPlaySettings()
         })
+    }
+
+    private fun navigateToSettings(){
+        findTopNavController().navigate(R.id.action_tabs_dest_to_settings_dest)
     }
 
     private fun navigateToPlaySettings() {

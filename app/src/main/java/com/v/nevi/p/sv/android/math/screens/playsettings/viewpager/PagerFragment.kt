@@ -1,6 +1,7 @@
 package com.v.nevi.p.sv.android.math.screens.playsettings.viewpager
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.v.nevi.p.sv.android.math.R
 import com.v.nevi.p.sv.android.math.databinding.ItemViewPagerPlaySettingsBinding
-import com.v.nevi.p.sv.android.math.screens.playsettings.PlaySettingsFragment
 import com.v.nevi.p.sv.android.math.screens.playsettings.range.EnterValueDialogFragment
 import com.v.nevi.p.sv.android.math.utils.EventObserver
 import com.v.nevi.p.sv.android.math.utils.getResult
@@ -27,8 +27,6 @@ class PagerFragment:Fragment() {
     private lateinit var binding: ItemViewPagerPlaySettingsBinding
 
     companion object{
-
-        const val KEY_NEW_VALUE = "new-value"
 
         fun NewInstance(arg:Int):Fragment {
             return PagerFragment().apply {
@@ -53,17 +51,14 @@ class PagerFragment:Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
         }
-        getResult(KEY_NEW_VALUE)?.observe(viewLifecycleOwner){
+        getResult<Int>(arguments?.getInt(ARG_POSITION).toString()){
             viewModel.setResult(it)
             binding.invalidateAll()
         }
     }
 
     private fun setObservers(){
-        viewModel.onEnterFirstValueClickEvent.observe(viewLifecycleOwner, EventObserver {
-            onEnterValueClick(it)
-        })
-        viewModel.onEnterSecondValueClickEvent.observe(viewLifecycleOwner, EventObserver {
+        viewModel.onEnterValueClickEvent.observe(viewLifecycleOwner, EventObserver {
             onEnterValueClick(it)
         })
         viewModel.showToastEvent.observe(viewLifecycleOwner,EventObserver{
@@ -71,12 +66,9 @@ class PagerFragment:Fragment() {
         })
     }
 
-    private fun onEnterValueClick(currentValue: Int) {
+    private fun onEnterValueClick(arg:Int) {
         findNavController().navigate(
-            R.id.action_play_settings_dest_to_enter_value_dest, bundleOf(
-                EnterValueDialogFragment.KEY_CURRENT_VALUE to currentValue
-            ),
-            null
+            R.id.action_play_settings_dest_to_enter_value_dest, bundleOf(EnterValueDialogFragment.KEY_POSITION to arg)
         )
     }
 }

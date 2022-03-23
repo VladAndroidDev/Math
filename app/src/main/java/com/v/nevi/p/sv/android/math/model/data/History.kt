@@ -23,7 +23,7 @@ data class History(@PrimaryKey val date: Date, var numberTasks:Int, var numberCo
 
     val quality:String
     get() {
-        return (numberCorrectAnswers.toDouble()/numberTasks).toString()
+        return (numberCorrectAnswers.toDouble()/numberTasks*100).toInt().toString()+"%"
     }
 
     val dateToString:String
