@@ -17,11 +17,8 @@ class HistoryPlay:Parcelable {
     var quality = 0
     get() = (numberCorrectAnswers.toDouble()/numberResolvedTasks*100).toInt()
 
-
-
-
     fun createItemPlayHistory(task: Task, answerUser: Long): StatisticsItem.ItemPlayHistory {
-        val isAnswerCorrect = task.answer == answerUser
+        val isAnswerCorrect = task.answer.toLong() == answerUser
         updateAnswers(isAnswerCorrect)
         val presentationHistory = task.toString() + answerUser
         val presentationCorrect = task.toString() + task.answer
@@ -41,7 +38,6 @@ class HistoryPlay:Parcelable {
 
     fun updateTime(newTime: Long) {
         timePlay = newTime
-        Log.d("MyTagSeconds",timePlay.toString())
     }
 
     fun createEntityForDb(): History {

@@ -102,8 +102,8 @@ class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),Cal
         getAnswers()
     }
 
-    private val _itemsOptionsList:MutableLiveData<List<Long>> = MutableLiveData()
-    val itemsOptionsList:LiveData<List<Long>> = _itemsOptionsList
+    private val _itemsOptionsList:MutableLiveData<List<Int>> = MutableLiveData()
+    val itemsOptionsList:LiveData<List<Int>> = _itemsOptionsList
 
     private fun getAnswers() {
         if (numberAnswers > 0) {
@@ -128,7 +128,6 @@ class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),Cal
 
 
     fun continuePlay(){
-        Log.d("MyTagSeconds",scene.timePlay.toString())
         setTimerWork(true,scene.timePlay)
     }
 

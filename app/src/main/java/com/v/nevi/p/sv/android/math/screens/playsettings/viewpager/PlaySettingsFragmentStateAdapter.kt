@@ -7,7 +7,7 @@ import com.v.nevi.p.sv.android.math.model.playsettings.PlaySettings
 
 class PlaySettingsFragmentStateAdapter(fragmentActivity: FragmentActivity):FragmentStateAdapter(fragmentActivity) {
 
-    override fun getItemCount() = PlaySettings.NUMBER_OPERATIONS
+    override fun getItemCount() = PlaySettings.getInstance().getNumberOperations()
 
     override fun createFragment(position: Int) = PagerFragment.NewInstance(position)
 

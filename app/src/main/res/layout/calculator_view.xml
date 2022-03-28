@@ -10,18 +10,23 @@
 
         <TextView
             android:id="@+id/answer"
-            android:text="@string/your_answer"
+            android:text="@string/enter_the_number"
             android:textSize="24sp"
             android:padding="12dp"
             android:layout_column="0"
             android:layout_span="3"
             />
 
+        <FrameLayout
+            android:layout_gravity="center">
         <android.widget.Button
             android:id="@+id/button_remove"
+            android:layout_height="50dp"
+            android:layout_width="60dp"
             android:background="@drawable/ripple_backspace_button"
-            android:padding="12dp"
+
             />
+        </FrameLayout>
 
     </TableRow>
     <TableRow>
@@ -31,7 +36,8 @@
             android:text="7"
             android:background="@drawable/ripple_button"
             android:theme="@style/CalculateButtonsStyle"
-            android:layout_margin="1dp"/>
+            android:layout_margin="1dp"
+            />
 
         <android.widget.Button
             android:id="@+id/button_eight"

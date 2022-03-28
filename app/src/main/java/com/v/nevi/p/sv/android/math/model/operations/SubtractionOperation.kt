@@ -8,10 +8,12 @@ class SubtractionOperation(private val startRange:Int, private val endRange:Int)
 
     override fun generateTask(): Task {
         val firstValue = GenerateRandomNumber.execute(startRange,endRange)
-        val secondValue = GenerateRandomNumber.execute(startRange,endRange)
-        val answer = firstValue - secondValue
+        val secondValue = generateValueWithCondition(startRange,endRange){
+            it!=firstValue
+        }
+        val  answer = firstValue - secondValue
         val stringRepresentation = getStringRepresentation(firstValue, secondValue)
-        return Task(answer.toLong(),stringRepresentation)
+        return Task(answer,stringRepresentation)
     }
 
     override val symbol ='-'

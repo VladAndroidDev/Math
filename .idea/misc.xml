@@ -26,6 +26,8 @@
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_start_button.xml" value="0.1545" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/calculator_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/custom_tab_view.xml" value="0.146875" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/custome_tab_view.xml" value="0.146875" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/dialog_enter_value.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/dialog_exit_game.xml" value="0.1" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/dialog_pause_game.xml" value="0.1" />
@@ -35,13 +37,13 @@
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_enter_range_dialog.xml" value="0.1" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_enter_value_dialog.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_history.xml" value="0.2" />
-        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_play.xml" value="0.264" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_play.xml" value="0.144" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_play_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_start.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_statistic.xml" value="0.264" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/fragment_tabs.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/header_history.xml" value="0.25416666666666665" />
-        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/item_answer_options_list.xml" value="0.18385416666666668" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/item_answer_options_list.xml" value="0.1" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/item_history.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/item_history_play.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/item_recyclerview_history.xml" value="0.11302083333333333" />

@@ -16,7 +16,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/green_700"
+        android:background="@color/light_grey_500"
         android:padding="12dp"
         >
 
@@ -29,7 +29,7 @@
             android:checked="@{viewmodel.operationSettings.checked}"
             android:text = "@{viewmodel.operationSettings.checked ? @string/operation_enabled : @string/operation_disabled}"
             android:onCheckedChanged="@{(button, isChecked) -> viewmodel.onCheckedChange(button,isChecked)}"
-            android:textColor="@color/opacity_black"
+            android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/this_operation_will_take_values_in_this_range"
+            android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/operation_switch"
             app:layout_constraintStart_toStartOf="parent"
             />

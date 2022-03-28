@@ -89,6 +89,7 @@ class CalculatorView(
 //    }
 
     private fun onNumberClick(newValue:String){
+        if(value=="0") return
         if(value == context.getString(R.string.enter_the_number)){
             value=""
         }
@@ -136,16 +137,15 @@ class CalculatorView(
             onNumberClick("9")
         }
         buttonZero.setOnClickListener {
-            if(value.isEmpty() || value[0]=='0') return@setOnClickListener
             onNumberClick("0")
         }
         buttonMinus.setOnClickListener {
             value = when {
-                value.isEmpty() -> {
+                value.isEmpty()||value==context.getString(R.string.enter_the_number) -> {
                     "-"
                 }
                 value[0] == '-' -> {
-                    value.substring(1, value.length - 1)
+                    value.substring(1, value.length)
                 }
                 else -> {
                     "-$value"
@@ -158,7 +158,7 @@ class CalculatorView(
                 Toast.makeText(context,R.string.enter_the_number,Toast.LENGTH_SHORT).show()
             } else {
                 onEqualClickListener?.onEqualClick(value.toLong())
-                value=""
+                value=context.getString(R.string.enter_the_number)
                 updateText()
             }
         }
@@ -169,6 +169,7 @@ class CalculatorView(
     }
 
     interface OnEqualMarkClickListener {
+
         fun onEqualClick(result: Long)
     }
 

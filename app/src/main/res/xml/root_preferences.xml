@@ -15,7 +15,7 @@
             app:title="@string/privacy_policy">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://vladandroiddev.github.io/"/>
+                android:data="https://vladandroiddev.github.io/verbalmathprivacypolicy"/>
         </Preference>
 
 </PreferenceScreen>

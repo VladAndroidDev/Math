@@ -22,7 +22,7 @@ class EnterValueViewModel : ViewModel() {
 
     fun onDoneClick() {
         if(value==""){
-            value="0"
+            _onCancelEvent.value = Event(Unit)
         }else {
             if (value.length > 4) {
                 value = if (value[0] == '-'){
@@ -31,7 +31,7 @@ class EnterValueViewModel : ViewModel() {
                     value.substring(0,4)
                 }
             }
+            _onDoneEvent.value = Event(value.toInt())
         }
-        _onDoneEvent.value = Event(value.toInt())
     }
 }

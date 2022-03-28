@@ -8,10 +8,10 @@ class MultiplicationOperation(private val startRange:Int, private val endRange:I
 
     override fun generateTask(): Task {
         val firstValue = GenerateRandomNumber.execute(startRange,endRange)
-        val secondValue = GenerateRandomNumber.execute(startRange,endRange)
+        val secondValue = generateNotZeroValue(startRange, endRange)
         val answer = firstValue * secondValue
         val stringRepresentation = getStringRepresentation(firstValue, secondValue)
-        return Task(answer.toLong(),stringRepresentation)
+        return Task(answer,stringRepresentation)
     }
 
 

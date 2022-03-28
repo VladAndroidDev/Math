@@ -8,7 +8,6 @@
     <string name="game_duration">Game duration</string>
     <string name="statistics">Statistics</string>
     <string name="total_tasks">Total tasks</string>
-    <string name="number_of_correct_answers">Number of correct answers</string>
     <string name="mathematical_operations">Mathematical operations</string>
     <string name="addition">Addition</string>
     <string name="subtraction">Subtraction</string>
@@ -16,7 +15,7 @@
     <string name="division">Division</string>
     <string name="start">Start</string>
     <string name="enter_range_hint">Enter value</string>
-    <string name="quick_settings">Quick settings</string>
+
     <string name="cancel">Cancel</string>
     <string name="done">Done</string>
     <string name="enter_value_here">Enter value here</string>
@@ -27,7 +26,6 @@
     <string name="tasks">tasks</string>
     <string name="manual_input">Manual input</string>
     <string name="variants">variants</string>
-    <string name="your_answer">Enter your answer</string>
     <string name="enter_the_number">Enter the number</string>
     <string name="text_time">Time</string>
     <string name="average_time">Average per task</string>
@@ -38,22 +36,9 @@
     <string name="operation_enabled">Operation enabled</string>
     <string name="continue_game">Continue</string>
     <string name="totals">Totals</string>
-    <string name="finish">Finish</string>
+
     <string name="pause">Pause</string>
-    <string name="messages_header">Messages</string>
-    <!-- Preference Titles -->
-    <string name="sync_header">Sync</string>
-    <string name="signature_title">Your signature</string>
 
-    <!-- Messages Preferences -->
-    <string name="reply_title">Default reply action</string>
-    <string name="sync_title">Sync email periodically</string>
-
-    <!-- Sync Preferences -->
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string-array name="tabs">
 
         <item>@string/addition</item>

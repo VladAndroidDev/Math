@@ -6,22 +6,18 @@ import java.io.Serializable
 
 
 data class PlaySettings private constructor(
-    @Expose
+
     val operationsSettings: Array<OperationSettings> = arrayOf(
-        OperationSettings(AdditionOperation::class.java),
-        OperationSettings(SubtractionOperation::class.java),
-        OperationSettings(MultiplicationOperation::class.java),
-        OperationSettings(DivisionOperation::class.java)
-//        OperationSettings(),
-//        OperationSettings(),
-//        OperationSettings(),
-//        OperationSettings()
+        OperationSettings(OperationClass.ADDITION),
+        OperationSettings(OperationClass.SUBTRACTION),
+        OperationSettings(OperationClass.MULTIPLICATION),
+        OperationSettings(OperationClass.DIVISION)
     ),
-    @Expose
-    var gameDuration: Int = 600,
-    @Expose
-    var numberAnswers: Int = 0,
-    @Expose
+
+    var gameDuration: Int = 0,
+
+    var numberAnswers: Int = 4,
+
     var numberTasks: Int = 0
 ) : Serializable {
 
@@ -33,9 +29,11 @@ data class PlaySettings private constructor(
         }
     }
 
+    fun getNumberOperations() = operationsSettings.size
+
     companion object {
 
-        const val NUMBER_OPERATIONS = 4
+
 
         private var instance: PlaySettings? = null
 

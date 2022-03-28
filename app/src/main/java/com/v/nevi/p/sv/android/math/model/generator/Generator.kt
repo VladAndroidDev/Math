@@ -7,8 +7,8 @@ import com.v.nevi.p.sv.android.math.model.playsettings.PlaySettings
 class Generator(private val playSettings: PlaySettings) {
 
     private val enabledOperations = playSettings.getEnabledOperations()
-    private var randomOperationIndex:Int = 0
-    private lateinit var task: Task
+    private var randomOperationIndex: Int = 0
+    private var task: Task? = null
 
     fun generateTask(): Task {
         val operation = if (enabledOperations.size > 1) {
@@ -17,12 +17,19 @@ class Generator(private val playSettings: PlaySettings) {
         } else {
             enabledOperations[0]
         }
-        task = operation.generateTask()
-        return task
+        var newTask: Task
+        do {
+            newTask = operation.generateTask()
+        } while (newTask == task)
+        task = newTask
+        return task!!
     }
 
-    fun getAnswers() = enabledOperations[randomOperationIndex].generateAnswers(playSettings.numberAnswers,task.answer)
+    fun getAnswers() = enabledOperations[randomOperationIndex].generateAnswers(
+        playSettings.numberAnswers,
+        task!!.answer
+    )
 
-    fun getLastTask() = task
+    fun getLastTask() = task!!
 
 }

@@ -15,4 +15,5 @@
     <color name="color_correct_answer">#4CAF50</color>
     <color name="delimetr_color">@color/opacity_black</color>
     <color name="red_dark">#ba000d</color>
+    <color name="light_grey_500">#efefef</color>
 </resources>

@@ -11,8 +11,10 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
 import com.v.nevi.p.sv.android.math.R
 import com.v.nevi.p.sv.android.math.databinding.FragmentPlayBinding
+import com.v.nevi.p.sv.android.math.screens.play.adapters.AnswerOptionsAdapter
 import com.v.nevi.p.sv.android.math.screens.play.adapters.HistoryAdapter
 import com.v.nevi.p.sv.android.math.screens.statistics.StatisticsFragment
 import com.v.nevi.p.sv.android.math.utils.EventObserver
@@ -63,12 +65,15 @@ class PlayFragment : Fragment() {
         binding = FragmentPlayBinding.inflate(inflater, container, false).apply {
             this.viewmodel = viewModel
             recyclerViewHistory.adapter = HistoryAdapter(viewModel)
+            recyclerViewOptions.adapter = AnswerOptionsAdapter(viewModel)
         }
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val adRequestAdView = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequestAdView)
         setObservers()
         getResult<EventMenu>(KEY_EVENT_MENU) {
             viewModel.setResult(it)

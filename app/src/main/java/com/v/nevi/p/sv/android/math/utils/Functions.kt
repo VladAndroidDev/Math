@@ -31,6 +31,7 @@ fun createStringTimeRepresentation(time:Long):String{
 fun getSupportedLocale(): Locale {
     return when (Locale.getDefault()) {
         Locale.forLanguageTag("ru-RU") -> Locale.forLanguageTag("ru-RU")
+        Locale.forLanguageTag("pl-PL") -> Locale.forLanguageTag("pl-PL")
         else -> Locale.ENGLISH
     }
 }

@@ -10,18 +10,21 @@
 
     </data>
 
-    <android.widget.Button
+    <com.v.nevi.p.sv.android.math.views.ResizableButton
         android:id="@+id/answer_options_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1"
-        android:padding="12dp"
         android:layout_margin="2dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingEnd="4dp"
+        android:paddingStart="4dp"
         android:gravity="center"
-        android:background="@drawable/ripple_button"
         android:onClick="@{(v)->viewmodel.onAnswerSelected(v)}"
-        app:autoSizeMaxTextSize="32sp"
-        app:autoSizeMinTextSize="16sp"
+        android:maxLines="1"
+        android:background="@drawable/ripple_button"
+        app:autoSizeMaxTextSize="28sp"
+        app:autoSizeMinTextSize="11sp"
         app:autoSizeTextType="uniform"
         />
 

@@ -7,7 +7,13 @@ import com.v.nevi.p.sv.android.math.databinding.ItemAnswerOptionsListBinding
 import com.v.nevi.p.sv.android.math.screens.play.PlayViewModel
 import com.v.nevi.p.sv.android.math.screens.play.adapters.AnswerOptionsAdapter.AnswerOptionsViewHolder as AnswerOptionsViewHolder
 
-class AnswerOptionsAdapter(private val viewModel: PlayViewModel,private val listItems:List<Long>) : RecyclerView.Adapter<AnswerOptionsViewHolder>() {
+class AnswerOptionsAdapter(private val viewModel: PlayViewModel) : RecyclerView.Adapter<AnswerOptionsViewHolder>() {
+
+    var listItems:List<Int> = emptyList()
+    set(value) {
+        field =value
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerOptionsViewHolder {
         return from(parent,viewModel)
@@ -30,7 +36,7 @@ class AnswerOptionsAdapter(private val viewModel: PlayViewModel,private val list
 
     class AnswerOptionsViewHolder(private val binding: ItemAnswerOptionsListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(answer:Long){
+            fun bind(answer:Int){
                 binding.answerOptionsButton.text = answer.toString()
             }
     }

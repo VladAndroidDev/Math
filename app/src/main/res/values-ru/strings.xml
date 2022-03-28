@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Математика</string>
+    <string name="play">Старт</string>
+    <string name="settings">Настройик</string>
+    <string name="history">История</string>
+    <string name="number_of_tasks">Количество примеров</string>
+    <string name="number_of_answers">Количество ответов</string>
+    <string name="game_duration">Время игры</string>
+    <string name="statistics">Статистика</string>
+    <string name="total_tasks">Всего примеров</string>
+    <string name="mathematical_operations">Математические рперации</string>
+    <string name="addition">Сложение</string>
+    <string name="subtraction">Вычитание</string>
+    <string name="multiplication">Умножение</string>
+    <string name="division">Деление</string>
+    <string name="start">Старт</string>
+    <string name="enter_range_hint">Введите значение</string>
+    <string name="cancel">Отмена</string>
+    <string name="done">Сохранить</string>
+    <string name="enter_value_here">Введите значение здесь</string>
+
+    <string name="msg_error_incorrect_value">Начальное значение диапазона не может быть больше или ровно конечному</string>
+    <string name="time">минут</string>
+    <string name="not_limited">Без ограничений</string>
+    <string name="tasks">задач</string>
+    <string name="manual_input">Ручной ввод</string>
+    <string name="variants">вариантов</string>
+    <string name="enter_the_number">Введите ответ</string>
+    <string name="text_time">Время</string>
+    <string name="average_time">Среднее время на задание</string>
+    <string name="quality">Качество</string>
+    <string name="time_in_play">Времение в игре</string>
+    <string name="correct_answers">Правильных ответов</string>
+    <string name="operation_disabled">Операция отключена</string>
+    <string name="operation_enabled">Операция включена</string>
+    <string name="continue_game">Продолжить</string>
+    <string name="totals">Итоги</string>
+
+    <string name="pause">Пауза</string>
+
+    <string-array name="tabs">
+
+        <item>@string/addition</item>
+        <item>@string/subtraction</item>
+        <item>@string/multiplication</item>
+        <item>@string/division</item>
+
+    </string-array>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="rate_us">Оцените нас</string>
+    <string name="exit">Выйти</string>
+    <string name="this_operation_will_take_values_in_this_range">Эта операция принимает значения в диапазоне</string>
+    <string name="toast_msg_must_be_enabled">Хотя бы одна операция должна быть включена</string>
+    <string name="yes_button">Да</string>
+    <string name="no_button">Нет</string>
+    <string name="do_you_really_want_exit">Вы правда хотите выйти?</string>
+</resources>
