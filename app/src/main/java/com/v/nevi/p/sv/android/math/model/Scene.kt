@@ -33,8 +33,8 @@ class Scene{
 
     fun isTimeOver() = playSettings.gameDuration.toLong() == historyPlay.timePlay
 
-    fun updateTime(time: Long) {
-        historyPlay.updateTime(time)
+    fun updateTime() {
+        historyPlay.updateTime()
     }
 
     fun getHistoryPlay() = historyPlay.createEntityForDb()

@@ -2,6 +2,8 @@ package com.v.nevi.p.sv.android.math.utils
 
 import java.util.*
 
+
+
 fun createStringTimeRepresentation(time:Long):String{
     val hours = time / 3600L
     val minutes = time % 3600 / 60
@@ -29,11 +31,36 @@ fun createStringTimeRepresentation(time:Long):String{
 }
 
 fun getSupportedLocale(): Locale {
-    return when (Locale.getDefault()) {
-        Locale.forLanguageTag("ru-RU") -> Locale.forLanguageTag("ru-RU")
-        Locale.forLanguageTag("pl-PL") -> Locale.forLanguageTag("pl-PL")
-        else -> Locale.ENGLISH
+    val lang=Locale.getDefault().language
+    return when {
+        lang.contentEquals("ru") -> {
+            Locale.forLanguageTag("ru-RU")
+        }
+        lang.contentEquals("uk") -> {
+            Locale.forLanguageTag("uk-UK")
+        }
+        lang.contentEquals("pl") -> {
+            Locale.forLanguageTag("pl-PL")
+        }
+        lang.contentEquals("de")->{
+            Locale.forLanguageTag("de-DE")
+        }
+        lang.contentEquals("fr")->{
+            Locale.forLanguageTag("fr-FR")
+        }
+        lang.contentEquals("pt")->{
+            Locale.forLanguageTag("pt-PT")
+        }
+        else -> {
+            Locale.ENGLISH
+        }
     }
+//    return when () {
+//        Locale.forLanguageTag("ru-RU") -> Locale.forLanguageTag("ru-RU")
+//        Locale.forLanguageTag("pl-PL") -> Locale.forLanguageTag("pl-PL")
+//        Locale.forLanguageTag("uk-UK") -> Locale.forLanguageTag("uk-UK")
+//        else -> Locale.ENGLISH
+//    }
 }
 
 fun getCurrentDate(): Date {

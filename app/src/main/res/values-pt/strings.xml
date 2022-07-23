@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Matemática</string>
+    <string name="play">Play</string>
+    <string name="settings">Definições</string>
+    <string name="history">História</string>
+    <string name="number_of_tasks">Número de tarefas</string>
+    <string name="number_of_answers">Número de respostas</string>
+    <string name="game_duration">Duração do jogo</string>
+    <string name="statistics">Estatisticas</string>
+    <string name="total_tasks">Total de tarefas</string>
+
+    <string name="addition">Adição</string>
+    <string name="subtraction">Subtração</string>
+    <string name="multiplication">Multiplicação</string>
+    <string name="division">Divisão</string>
+    <string name="start">Iniciar jogo</string>
+    <string name="enter_range_hint">Insira o valor</string>
+    <string name="cancel">Cancelar</string>
+    <string name="done">Feito</string>
+    <string name="enter_value_here">Insira o valor aqui</string>
+
+    <string name="msg_error_incorrect_value">O valor inicial do intervalo não pode ser maior ou igual ao valor final.</string>
+    <string name="time">minutos</string>
+    <string name="not_limited">Não limitado</string>
+    <string name="tasks">tarefas</string>
+    <string name="manual_input">Entrada manual</string>
+    <string name="variants">variantes</string>
+    <string name="enter_the_number">Digite sua resposta</string>
+    <string name="text_time">Tempo</string>
+    <string name="average_time">Média por tarefa</string>
+    <string name="quality">Qualidade</string>
+    <string name="time_in_play">Tempo no jogo</string>
+    <string name="correct_answers">Resolvido corretamente</string>
+    <string name="operation_disabled">Operação desativada</string>
+    <string name="operation_enabled">Operação habilitada</string>
+    <string name="continue_game">Continuar</string>
+    <string name="totals">Totais</string>
+
+    <string name="pause">Pausa</string>
+
+    <string-array name="tabs">
+
+        <item>@string/addition</item>
+        <item>@string/subtraction</item>
+        <item>@string/multiplication</item>
+        <item>@string/division</item>
+
+    </string-array>
+    <string name="privacy_policy">Política de Privacidade</string>
+    <string name="rate_us">Nos avalie</string>
+    <string name="exit">Saída</string>
+    <string name="this_operation_will_take_values_in_this_range">Faixa de valor</string>
+    <string name="toast_msg_must_be_enabled">Pelo menos uma operação deve estar habilitada</string>
+    <string name="yes_button">Sim</string>
+    <string name="no_button">Não</string>
+    <string name="do_you_really_want_exit">Você realmente quer sair?</string>
+</resources>

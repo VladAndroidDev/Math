@@ -1,6 +1,5 @@
 package com.v.nevi.p.sv.android.math.model.playsettings
 
-import com.google.gson.annotations.Expose
 import com.v.nevi.p.sv.android.math.model.operations.*
 import java.io.Serializable
 
@@ -10,8 +9,8 @@ data class PlaySettings private constructor(
     val operationsSettings: Array<OperationSettings> = arrayOf(
         OperationSettings(OperationClass.ADDITION),
         OperationSettings(OperationClass.SUBTRACTION),
-        OperationSettings(OperationClass.MULTIPLICATION),
-        OperationSettings(OperationClass.DIVISION)
+        OperationSettings(OperationClass.MULTIPLICATION, valueEndRange = 15),
+        OperationSettings(OperationClass.DIVISION,valueEndRange = 100)
     ),
 
     var gameDuration: Int = 0,
@@ -32,8 +31,6 @@ data class PlaySettings private constructor(
     fun getNumberOperations() = operationsSettings.size
 
     companion object {
-
-
 
         private var instance: PlaySettings? = null
 

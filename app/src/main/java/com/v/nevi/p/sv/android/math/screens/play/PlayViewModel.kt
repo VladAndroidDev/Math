@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 
 interface TimeListener{
 
-    fun checkTime(time: Long)
+    fun checkTime()
 }
 
 
@@ -150,10 +150,8 @@ class PlayViewModel(private val repository: HistoryRepository) : ViewModel(),Cal
         _timeIsWork.value = ChronometerSettings(b,time)
     }
 
-    override fun checkTime(time: Long) {
-        Log.d("MyTagChronometer",time.toString())
-        if(time == 0L) return
-        scene.updateTime(time)
+    override fun checkTime() {
+        scene.updateTime()
         if(scene.isTimeOver()){
             finishPlay()
         }

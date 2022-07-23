@@ -14,21 +14,21 @@ class EnterValueViewModel : ViewModel() {
     private val _onDoneEvent: MutableLiveData<Event<Int>> = MutableLiveData()
     val onDoneEvent: LiveData<Event<Int>> = _onDoneEvent
 
-     var value=""
+    var value = ""
 
     fun onCancelClick() {
         _onCancelEvent.value = Event(Unit)
     }
 
     fun onDoneClick() {
-        if(value==""){
+        if (value == "" || value == "-") {
             _onCancelEvent.value = Event(Unit)
-        }else {
+        } else {
             if (value.length > 4) {
-                value = if (value[0] == '-'){
-                    value.substring(0,5)
-                }else{
-                    value.substring(0,4)
+                value = if (value[0] == '-') {
+                    value.substring(0, 5)
+                } else {
+                    value.substring(0, 4)
                 }
             }
             _onDoneEvent.value = Event(value.toInt())

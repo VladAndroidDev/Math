@@ -1,9 +1,11 @@
 package com.v.nevi.p.sv.android.math.preferences
 
 import android.content.Context
+import android.util.JsonReader
 import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.v.nevi.p.sv.android.math.model.playsettings.PlaySettings
+import java.lang.IllegalStateException
 
 
 private const val KEY_PLAY_SETTINGS="key-play-settings"
@@ -22,7 +24,13 @@ object MathPreferences {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         val jsonObject = preferences.getString(KEY_PLAY_SETTINGS, null)
         val gson = Gson()
-        return gson.fromJson(jsonObject, PlaySettings::class.java)
+        var playSettings:PlaySettings? = null
+        try {
+            playSettings = gson.fromJson(jsonObject, PlaySettings::class.java)
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
+        return playSettings
     }
 
 }

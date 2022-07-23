@@ -9,7 +9,7 @@
 
     </data>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,10 +18,14 @@
     tools:context=".StatisticsFragment">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:cardCornerRadius="12dp">
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -184,25 +188,46 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/exit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:layout_marginTop="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/exit"
         android:onClick="@{()->viewmodel.onExit()}"
+        app:layout_constraintTop_toBottomOf="@id/card_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="18dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:itemsStatistics="@{viewmodel.listStatisticsItems}"/>
+        app:itemsStatistics="@{viewmodel.listStatisticsItems}"
+        app:layout_constraintTop_toBottomOf="@id/exit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ad_view"
+        app:layout_constraintVertical_bias="0.0"/>
 
 
-</LinearLayout>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ad_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-2946397644393077/4949151727"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

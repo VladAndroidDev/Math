@@ -36,8 +36,8 @@ class HistoryPlay:Parcelable {
         }
     }
 
-    fun updateTime(newTime: Long) {
-        timePlay = newTime
+    fun updateTime() {
+        timePlay++
     }
 
     fun createEntityForDb(): History {

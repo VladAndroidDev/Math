@@ -24,6 +24,8 @@
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_button.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_finish_button.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/shape_start_button.xml" value="0.1545" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/drawable/start_button.xml" value="0.142" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout-ldpi/fragment_play.xml" value="0.1" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/calculator_view.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/custom_tab_view.xml" value="0.146875" />
@@ -53,6 +55,8 @@
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/manual_input_view.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/recycler_view_options_answer.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/shape_finish_button.xml" value="0.171875" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/toast_message.xml" value="0.17083333333333334" />
+        <entry key="..\:/projects/ForMarket/Math/app/src/main/res/layout/toast_text_view.xml" value="0.171875" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1805" />
         <entry key="..\:/projects/ForMarket/Math/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.124" />

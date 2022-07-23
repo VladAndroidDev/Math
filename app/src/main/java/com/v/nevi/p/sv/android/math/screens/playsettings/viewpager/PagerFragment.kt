@@ -2,9 +2,11 @@ package com.v.nevi.p.sv.android.math.screens.playsettings.viewpager
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -62,7 +64,8 @@ class PagerFragment:Fragment() {
             onEnterValueClick(it)
         })
         viewModel.showToastEvent.observe(viewLifecycleOwner,EventObserver{
-            Toast.makeText(requireContext(),getString(it), Toast.LENGTH_LONG).show()
+            val toast = Toast.makeText(requireContext(),it,Toast.LENGTH_LONG)
+            toast.show()
         })
     }
 

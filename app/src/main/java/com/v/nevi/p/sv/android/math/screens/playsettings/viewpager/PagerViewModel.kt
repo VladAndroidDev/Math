@@ -1,6 +1,5 @@
 package com.v.nevi.p.sv.android.math.screens.playsettings.viewpager
 
-import android.util.Log
 import android.widget.CompoundButton
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -93,7 +93,7 @@ class CalculatorView(
         if(value == context.getString(R.string.enter_the_number)){
             value=""
         }
-        if(value.length== LENGTH_MAX_VALUE) return
+        if(value.length >= LENGTH_MAX_VALUE) return
         value += newValue
         updateText()
     }

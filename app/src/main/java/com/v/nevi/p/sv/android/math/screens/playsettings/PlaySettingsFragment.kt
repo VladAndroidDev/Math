@@ -2,15 +2,12 @@ package com.v.nevi.p.sv.android.math.screens.playsettings
 
 
 import android.os.Bundle
-import android.util.Log
-import android.util.TypedValue
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -58,7 +55,10 @@ class PlaySettingsFragment : Fragment() {
             findNavController().navigate(R.id.action_play_settings_dest_to_play_dest)
         })
         viewModel.showToastEvent.observe(viewLifecycleOwner,EventObserver{
-            Toast.makeText(requireContext(),it,Toast.LENGTH_LONG).show()
+            val toast = Toast.makeText(requireContext(),it,Toast.LENGTH_LONG)
+            val textView = toast.view!!.findViewById<TextView>(android.R.id.message)
+            textView.gravity = Gravity.CENTER
+            toast.show()
         })
     }
 }

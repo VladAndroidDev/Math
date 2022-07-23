@@ -9,6 +9,7 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
 import com.v.nevi.p.sv.android.math.R
 import com.v.nevi.p.sv.android.math.databinding.FragmentStatisticBinding
 import com.v.nevi.p.sv.android.math.utils.EventObserver
@@ -42,6 +43,8 @@ class StatisticsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val adRequestAdView = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequestAdView)
         setObservers()
     }
 

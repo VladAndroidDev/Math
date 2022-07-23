@@ -11,7 +11,7 @@
     <string name="statistics">Statystyka</string>
 
     <string name="total_tasks">Razem zadań</string>
-    <string name="mathematical_operations">Działania arytmetyczne</string>
+
 
     <string name="addition">Dodawanie</string>
     <string name="subtraction">Odejmowanie</string>
@@ -21,7 +21,7 @@
 
     <string name="enter_range_hint">Wpisz wartość</string>
     <string name="cancel">Anulować</string>
-    <string name="done">Zapisać</string>
+    <string name="done">Gotowy</string>
     <string name="enter_value_here">Wpisz tutaj wartość</string>
 
     <string name="msg_error_incorrect_value">Wartość początkowa zakresu nie może być większa lub równa wartości końcowej</string>
@@ -57,11 +57,11 @@
 
     <string name="privacy_policy">Polityka prywatności</string>
     <string name="rate_us">Oceń nas</string>
-    <string name="exit">Wychodzić</string>
+    <string name="exit">Wyjdź z gry</string>
     <string name="this_operation_will_take_values_in_this_range">Ta operacja przyjmuje wartości z zakresu</string>
 
     <string name="toast_msg_must_be_enabled">Co najmniej jedna operacja musi być włączona</string>
     <string name="yes_button">Tak</string>
     <string name="no_button">Nie</string>
-    <string name="do_you_really_want_exit">Czy naprawdę chcesz wyjść?</string>
+    <string name="do_you_really_want_exit">Czy na pewno chcesz wyjść z gry?</string>
 </resources>

@@ -2,14 +2,14 @@
 <resources>
     <string name="app_name">Математика</string>
     <string name="play">Старт</string>
-    <string name="settings">Настройик</string>
+    <string name="settings">Настройки</string>
     <string name="history">История</string>
     <string name="number_of_tasks">Количество примеров</string>
     <string name="number_of_answers">Количество ответов</string>
     <string name="game_duration">Время игры</string>
     <string name="statistics">Статистика</string>
     <string name="total_tasks">Всего примеров</string>
-    <string name="mathematical_operations">Математические рперации</string>
+
     <string name="addition">Сложение</string>
     <string name="subtraction">Вычитание</string>
     <string name="multiplication">Умножение</string>
@@ -32,8 +32,8 @@
     <string name="quality">Качество</string>
     <string name="time_in_play">Времение в игре</string>
     <string name="correct_answers">Правильных ответов</string>
-    <string name="operation_disabled">Операция отключена</string>
-    <string name="operation_enabled">Операция включена</string>
+    <string name="operation_disabled">Действие отключено</string>
+    <string name="operation_enabled">Действие включено</string>
     <string name="continue_game">Продолжить</string>
     <string name="totals">Итоги</string>
 
@@ -50,7 +50,7 @@
     <string name="privacy_policy">Политика конфиденциальности</string>
     <string name="rate_us">Оцените нас</string>
     <string name="exit">Выйти</string>
-    <string name="this_operation_will_take_values_in_this_range">Эта операция принимает значения в диапазоне</string>
+    <string name="this_operation_will_take_values_in_this_range">Диапазон значений</string>
     <string name="toast_msg_must_be_enabled">Хотя бы одна операция должна быть включена</string>
     <string name="yes_button">Да</string>
     <string name="no_button">Нет</string>

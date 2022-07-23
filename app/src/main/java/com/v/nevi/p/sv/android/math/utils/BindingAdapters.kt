@@ -23,15 +23,15 @@ import com.v.nevi.p.sv.android.math.views.RecyclerViewHistory
 @BindingAdapter(value = ["change_listener"])
 fun setTimeListener(chronometer: Chronometer, listener: TimeListener) {
     chronometer.setOnChronometerTickListener {
-        val timeValues = chronometer.text.toString().split(':')
-        val minutes = timeValues[0].toLong()
-        val seconds = timeValues[1].toLong()
-        val secondsAll: Long = if (minutes > 0) {
-            minutes * seconds
-        } else {
-            seconds
-        }
-        listener.checkTime(secondsAll)
+//        val timeValues = chronometer.text.toString().split(':')
+//        val minutes = timeValues[0].toLong()
+//        val seconds = timeValues[1].toLong()
+//        val secondsAll: Long = if (minutes > 0) {
+//            minutes * seconds
+//        } else {
+//            seconds
+//        }
+        listener.checkTime()
     }
 }
 
@@ -66,10 +66,6 @@ fun setHistoryItems(recyclerView: RecyclerView, listItems: List<History>?) {
         recyclerView.adapter = HistoryAdapter(it.reversed())
     }
 }
-//@BindingAdapter(value = ["viewModel"])
-//fun setViewModel(recyclerView: RecyclerView,viewModel: PlayViewModel){
-//    recyclerView.adapter = AnswerOptionsAdapter(viewModel)
-//}
 
 @BindingAdapter(value = ["items"], requireAll = true)
 fun setItems(recyclerView: RecyclerView, listItems: List<Int>?) {

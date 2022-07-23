@@ -6,7 +6,6 @@
         <variable
             name="viewmodel"
             type="com.v.nevi.p.sv.android.math.screens.playsettings.range.EnterValueViewModel" />
-
     </data>
 
 <LinearLayout
@@ -22,7 +21,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white">
+        android:backgroundTint="@color/white"
+        app:counterEnabled="true"
+        app:counterMaxLength="5">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -32,7 +33,8 @@
             android:textSize="16sp"
             android:text="@={viewmodel.value}"
             android:inputType="numberSigned"
-            android:maxLength="10"
+            android:maxLength="5"
+            android:digits="0123456789-"
             android:hint="@string/enter_value_here"
             android:theme="@style/EditTextStyle"
             android:backgroundTint="@color/white"/>

@@ -174,3 +174,8 @@ fun <T> MutableList<T>.addOr(firstValue: T, secondValue: T) {
         this.add(secondValue)
     }
 }
+
+fun selectOr(vararg values:Int):Int{
+    val randomNumber = GenerateRandomNumber.execute(0, values.size-1)
+    return values[randomNumber]
+}

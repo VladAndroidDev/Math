@@ -1,5 +1,6 @@
 package com.v.nevi.p.sv.android.math.screens.statistics
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +11,9 @@ import com.v.nevi.p.sv.android.math.utils.createStringTimeRepresentation
 
 class StatisticsViewModel(private val historyPlay: HistoryPlay):ViewModel() {
 
+    init {
+        Log.d("MyTimePlay",historyPlay.timePlay.toString())
+    }
     val totalTasks:String
     get() = historyPlay.numberResolvedTasks.toString()
 

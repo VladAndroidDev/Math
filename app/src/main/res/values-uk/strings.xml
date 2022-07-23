@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Математика</string>
+    <string name="play">Старт</string>
+    <string name="settings">Налаштування</string>
+    <string name="history">Історія</string>
+    <string name="number_of_tasks">Кількість прикладів</string>
+    <string name="number_of_answers">Кількість відповідей</string>
+    <string name="game_duration">Час гри</string>
+    <string name="statistics">Статистика</string>
+    <string name="total_tasks">Всього прикладів</string>
+
+    <string name="addition">Додавання</string>
+    <string name="subtraction">Віднімання</string>
+    <string name="multiplication">Множення</string>
+    <string name="division">Ділення</string>
+    <string name="start">Старт</string>
+    <string name="enter_range_hint">Введіть значення</string>
+    <string name="cancel">Відміна</string>
+    <string name="done">Зберегти</string>
+    <string name="enter_value_here">Введіть значення тут</string>
+
+    <string name="msg_error_incorrect_value">Початкове значення діапазонк не можу бути більше або рівне кінцевому</string>
+    <string name="time">хвилин</string>
+    <string name="not_limited">Без обмежень</string>
+    <string name="tasks">прикладів</string>
+    <string name="manual_input">Ручне введення</string>
+    <string name="variants">варіантів</string>
+    <string name="enter_the_number">Введіть відповідь</string>
+    <string name="text_time">Час</string>
+    <string name="average_time">Середній час на приклад</string>
+    <string name="quality">Якість</string>
+    <string name="time_in_play">Час в грі</string>
+    <string name="correct_answers">Правельних відповідей</string>
+    <string name="operation_disabled">Дія відключена</string>
+    <string name="operation_enabled">Дія включена</string>
+    <string name="continue_game">Продовжити</string>
+    <string name="totals">Підсумки</string>
+
+    <string name="pause">Пауза</string>
+
+    <string-array name="tabs">
+
+        <item>@string/addition</item>
+        <item>@string/subtraction</item>
+        <item>@string/multiplication</item>
+        <item>@string/division</item>
+
+    </string-array>
+    <string name="privacy_policy">Політика конфеденційності</string>
+    <string name="rate_us">Оцініть нас</string>
+    <string name="exit">Вийти</string>
+    <string name="this_operation_will_take_values_in_this_range">Діапазон значень</string>
+    <string name="toast_msg_must_be_enabled">Хоча б одна операція повинна бути включена</string>
+    <string name="yes_button">Так</string>
+    <string name="no_button">Ні</string>
+    <string name="do_you_really_want_exit">Ви справді хочете вийти?</string>
+</resources>

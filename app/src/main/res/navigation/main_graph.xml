@@ -54,7 +54,7 @@
     <fragment
         android:id="@+id/settings_dest"
         android:name="com.v.nevi.p.sv.android.math.screens.settings.SettingsFragment"
-        android:label="Settings" />
+        android:label="@string/settings" />
 
     <dialog
         android:id="@+id/enter_value_dest"

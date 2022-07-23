@@ -7,8 +7,7 @@
     <string name="number_of_answers">Number of answers</string>
     <string name="game_duration">Game duration</string>
     <string name="statistics">Statistics</string>
-    <string name="total_tasks">Total tasks</string>
-    <string name="mathematical_operations">Mathematical operations</string>
+    <string name="total_tasks">Completed tasks</string>
     <string name="addition">Addition</string>
     <string name="subtraction">Subtraction</string>
     <string name="multiplication">Multiplication</string>
@@ -27,11 +26,11 @@
     <string name="manual_input">Manual input</string>
     <string name="variants">variants</string>
     <string name="enter_the_number">Enter the number</string>
-    <string name="text_time">Time</string>
+    <string name="text_time">Your time</string>
     <string name="average_time">Average per task</string>
     <string name="quality">Quality</string>
     <string name="time_in_play">Time in game</string>
-    <string name="correct_answers">Correct answers</string>
+    <string name="correct_answers">Solved correctly</string>
     <string name="operation_disabled">Operation disabled</string>
     <string name="operation_enabled">Operation enabled</string>
     <string name="continue_game">Continue</string>
@@ -50,7 +49,7 @@
     <string name="privacy_policy">Privacy policy</string>
     <string name="rate_us">Rate us</string>
     <string name="exit">Exit</string>
-    <string name="this_operation_will_take_values_in_this_range">This operation will take values in this range</string>
+    <string name="this_operation_will_take_values_in_this_range">Value range</string>
     <string name="toast_msg_must_be_enabled">At least one operation must be enabled</string>
     <string name="yes_button">Yes</string>
     <string name="no_button">No</string>
